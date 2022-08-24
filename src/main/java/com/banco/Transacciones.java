@@ -1,12 +1,15 @@
 package com.banco;
+import lombok.NoArgsConstructor;
+
 import java.util.Scanner;
 import java.util.Date;
+@NoArgsConstructor
 public class Transacciones {
 
     public void retiro(Cuenta cuenta){
         double retiro;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Digite el monto a retirar");
+        System.out.println("Digite el monto a retirar " + cuenta.nombre);
         retiro = sc.nextDouble();
         cuenta.saldo = cuenta.saldo -retiro;
     }
@@ -14,7 +17,7 @@ public class Transacciones {
     public void deposito(Cuenta cuenta){
         double deposito;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Digite el monto a depositar");
+        System.out.println("Digite el monto a depositar "+cuenta.nombre);
         deposito = sc.nextDouble();
         cuenta.saldo = cuenta.saldo +deposito;
         Recibo recibo = new Recibo(deposito);
