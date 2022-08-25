@@ -7,11 +7,11 @@ import java.util.Date;
 public class Transacciones {
 
     public void retiro(Cuenta cuenta){
-        double retiro;
+        double saldo;
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite el monto a retirar " + cuenta.nombre);
-        retiro = sc.nextDouble();
-        cuenta.saldo = cuenta.saldo -retiro;
+        saldo = sc.nextDouble();
+        cuenta.saldo = cuenta.saldo -saldo;
     }
 
     public void deposito(Cuenta cuenta){
@@ -21,7 +21,7 @@ public class Transacciones {
         deposito = sc.nextDouble();
         cuenta.saldo = cuenta.saldo +deposito;
         Recibo recibo = new Recibo(deposito);
-        recibo.generarRecibo();
+        recibo.generarRecibo(cuenta);
     }
 
     public void transferencia(Cuenta cuentaTranfiere,Cuenta cuentaRecibe){
