@@ -30,7 +30,7 @@ public class Recibo {
         Session sesion = Session.getDefaultInstance(props);
 
     String correoRemitente = "proyecto.kodigo.1@gmail.com";
-        String contrasenia = "qsjvkdwpcextvqwu";
+        String contrasenia = "jdwmpifsthrmhleb";
         String destinatario = cuenta.email;
         String asunto = "Recibo";
         String mensaje = "recibo";
