@@ -1,6 +1,6 @@
-package com.banco;
+package com.banco.clases;
 
-public class Cliente extends Persona{
+public class Cliente extends Persona {
 
 
     public Cliente() {

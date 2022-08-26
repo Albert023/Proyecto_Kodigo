@@ -1,7 +1,6 @@
-package com.banco;
+package com.banco.clases;
 
-import lombok.AllArgsConstructor;
-import lombok.Generated;
+import com.banco.clases.Cuenta;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;

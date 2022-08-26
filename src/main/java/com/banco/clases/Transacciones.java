@@ -1,8 +1,10 @@
-package com.banco;
+package com.banco.clases;
+import com.banco.clases.Cuenta;
+import com.banco.clases.Recibo;
 import lombok.NoArgsConstructor;
 
 import java.util.Scanner;
-import java.util.Date;
+
 @NoArgsConstructor
 public class Transacciones {
 

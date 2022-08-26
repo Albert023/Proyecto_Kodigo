@@ -1,4 +1,4 @@
-package com.banco;
+package com.banco.clases;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
