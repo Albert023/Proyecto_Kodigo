@@ -2,11 +2,13 @@ package com.banco.clases;
 import com.banco.clases.Cuenta;
 import com.banco.clases.Recibo;
 import lombok.NoArgsConstructor;
+import com.banco.clases.clasesImpresion.imprimirPdf;
 
 import java.util.Scanner;
 
+
 @NoArgsConstructor
-public class Transacciones {
+public class Transacciones extends imprimirPdf {
 
     public void retiro(Cuenta cuenta){
         double saldo;
@@ -23,7 +25,8 @@ public class Transacciones {
         deposito = sc.nextDouble();
         cuenta.saldo = cuenta.saldo +deposito;
         Recibo recibo = new Recibo(deposito);
-        recibo.generarRecibo(cuenta);
+        //recibo.generarRecibo(cuenta);
+        generarPDF();
     }
 
     public void transferencia(Cuenta cuentaTranfiere,Cuenta cuentaRecibe){
