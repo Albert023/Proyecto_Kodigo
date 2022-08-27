@@ -16,8 +16,8 @@ import com.itextpdf.layout.properties.TextAlignment;
 
 public class imprimirPdf implements generarPDF {
 
-    public void generarPDF() {
-        String dest = "example.pdf";
+    public void generarPDF(String banco, int nCuenta, String transaccion, String propietario, double monto) {
+        String dest = "Recibo "+propietario+".pdf";
         PdfWriter writer;
         try {
             writer = new PdfWriter(dest);
@@ -31,8 +31,8 @@ public class imprimirPdf implements generarPDF {
         // Creating a Document
         Document document = new Document(pdfDoc);
         // Add Content
-        String content = "Lorem ipsum dolor sit amet...";
-        Paragraph paragraph = new Paragraph(content);
+        //String content = "Lorem ipsum dolor sit amet...";
+        Paragraph paragraph = new Paragraph(banco);
         paragraph.setFontSize(14);
         paragraph.setTextAlignment(TextAlignment.CENTER);
         paragraph.setBorder(Border.NO_BORDER);
@@ -48,12 +48,10 @@ public class imprimirPdf implements generarPDF {
         document.add(paragraph);
         // Adding a list
         List list = new List();
-        list.add("Java");
-        list.add("Go");
-        list.add("React");
-        list.add("Apache Kafka");
-        list.add("Jenkins");
-        list.add("Elastic Search");
+        list.add(String.valueOf(nCuenta));
+        list.add(transaccion);
+        list.add(propietario);
+        list.add(String.valueOf(monto));
         document.add(list);
         // Closing the document
         document.close();
