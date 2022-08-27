@@ -6,6 +6,6 @@ public class imprimirCorreo implements Imprimir {
 
     @Override
     public void imprimir() {
-
+        //agregar codigo
     }
 }

@@ -1,4 +1,10 @@
 package com.banco.clases.clasesImpresion;
 
-public class imprimirConsola {
+import com.banco.interfaces.Imprimir;
+
+public class imprimirConsola implements Imprimir {
+    @Override
+    public void imprimir() {
+        //agregar codigo
+    }
 }

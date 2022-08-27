@@ -1,4 +1,10 @@
 package com.banco.clases.clasesImpresion;
 
-public class imprimirPdf {
+import com.banco.interfaces.Imprimir;
+
+public class imprimirPdf implements Imprimir {
+    @Override
+    public void imprimir() {
+        //agregar codigo
+    }
 }
