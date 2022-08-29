@@ -1,6 +1,5 @@
 package com.banco.clases;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 

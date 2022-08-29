@@ -9,10 +9,11 @@ public class Implementacion {
     public static void main(String[] args){
 
         Cliente cliente1 = new Cliente();
-        Cuenta cuenta1 =new Cuenta(2000,cliente1);
+        Cuenta cuenta1 =new Cuenta(2000,34555123,cliente1);
 
         System.out.println(cuenta1.getNombre());
-         System.out.println(cuenta1.getSaldo());
+        System.out.println(cuenta1.getNumCuenta());
+        System.out.println(cuenta1.getSaldo());
 
         Transacciones transaccion = new Transacciones();
 
