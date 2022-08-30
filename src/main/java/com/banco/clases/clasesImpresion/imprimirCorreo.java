@@ -45,7 +45,7 @@ public class imprimirCorreo implements Imprimir {
             MimeBodyPart mbp1 = new MimeBodyPart();
             mbp1.setText(mensaje);
             MimeBodyPart mbp2 = new MimeBodyPart();
-            mbp2.attachFile("Recibo alberto.pdf");
+            mbp2.attachFile("Recibo "+cuenta.getNombre()+".pdf");
 
             Multipart mp = new MimeMultipart();
             mp.addBodyPart(mbp1);

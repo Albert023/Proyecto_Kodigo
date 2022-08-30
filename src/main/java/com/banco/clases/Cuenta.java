@@ -3,7 +3,7 @@ package com.banco.clases;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Cuenta extends Cliente{
+public class Cuenta extends Cliente {
    @Setter @Getter
     double saldo;
 
@@ -11,7 +11,8 @@ public class Cuenta extends Cliente{
     private int numCuenta;
 
 
-    public Cuenta(double saldo,int numCuenta,Cliente cliente) {
+    public Cuenta(double saldo,int numCuenta,Cliente cliente,Persona persona) {
+        super(persona);
         this.saldo = saldo;
         this.numCuenta = numCuenta;
     }

@@ -12,9 +12,14 @@ import java.util.Scanner;
 
 @NoArgsConstructor
 public class Transacciones {
+    Imprimir generarPDF = new imprimirPdf();
+    Imprimir generarCorreo = new imprimirCorreo();
+    Scanner sc = new Scanner(System.in);
 
     private  String nombreBanco;
     private  String direccionBanco;
+    double saldo;
+
     public void menu(){
         List<String> nombres = new ArrayList<>();
         List<String> direccion = new ArrayList<>();
@@ -64,37 +69,52 @@ public class Transacciones {
     }
 
     public void retiro(Cuenta cuenta){
-        double saldo;
-        Scanner sc = new Scanner(System.in);
+
+        menu();
+        Banco banco = new Banco(nombreBanco,1,direccionBanco);
+
         System.out.println("Digite el monto a retirar " + cuenta.nombre);
         saldo = sc.nextDouble();
         cuenta.saldo = cuenta.saldo -saldo;
+
+        generarPDF.imprimir(cuenta, banco, cuenta.saldo, "deposito");
+        System.out.println("PDF Created");
+
+        generarCorreo.imprimir(cuenta, banco, cuenta.saldo, "deposito");
+        System.out.println("Correo enviado");
     }
 
     public void deposito(Cuenta cuenta){
-        Imprimir generarPDF = new imprimirPdf();
-        Imprimir imprimir = new imprimirCorreo();
-        double deposito;
         // instanciación
         menu();
         Banco banco = new Banco(nombreBanco,1,direccionBanco);
         // Datos a ingresar
-        Scanner sc = new Scanner(System.in);
         System.out.println("Digite el monto a depositar "+cuenta.nombre);
-        deposito = sc.nextDouble();
+        saldo = sc.nextDouble();
         // Calculo del Deposito
-        cuenta.saldo = cuenta.saldo +deposito;
-        generarPDF.imprimir(cuenta,banco,deposito,"deposito");
-        imprimir.imprimir(cuenta,banco,deposito,"deposito");
+        cuenta.saldo = cuenta.saldo +saldo;
+
+        generarPDF.imprimir(cuenta, banco, cuenta.saldo, "deposito");
+        System.out.println("PDF Created");
+
+        generarCorreo.imprimir(cuenta, banco, cuenta.saldo, "deposito");
+        System.out.println("Correo enviado");
     }
 
     public void transferencia(Cuenta cuentaTranfiere,Cuenta cuentaRecibe){
-        double saldo ;
-        Scanner sc = new Scanner(System.in);
+        menu();
+        Banco banco = new Banco(nombreBanco,1,direccionBanco);
+
         System.out.println("Digite el monto a a transferir");
         saldo = sc.nextDouble();
         cuentaRecibe.saldo = cuentaRecibe.saldo +saldo;
         cuentaTranfiere.saldo = cuentaTranfiere.saldo - saldo;
+
+        generarPDF.imprimir(cuentaTranfiere, banco, cuentaTranfiere.saldo, "deposito");
+        System.out.println("PDF Created");
+
+        generarCorreo.imprimir(cuentaTranfiere,banco,cuentaTranfiere.saldo,"deposito");
+        System.out.println("Correo enviado");
     }
 
 }

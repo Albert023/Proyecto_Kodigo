@@ -5,7 +5,13 @@ import lombok.Setter;
 
 public class Persona {
     @Getter @Setter
-    String nombre, apellido, email, telefono;
+    String nombre;
+    @Getter @Setter
+    String apellido;
+    @Getter @Setter
+    String email;
+    @Getter @Setter
+    String telefono;
 
     public Persona(String nombre, String apellido, String email, String telefono) {
         this.nombre = nombre;

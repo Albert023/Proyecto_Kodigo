@@ -56,7 +56,6 @@ public class imprimirPdf implements Imprimir {
         document.add(list);
         // Closing the document
         document.close();
-        System.out.println("PDF Created");
 
     }
 
