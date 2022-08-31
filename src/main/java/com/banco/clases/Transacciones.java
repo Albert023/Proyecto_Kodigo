@@ -15,6 +15,10 @@ public class Transacciones {
   Scanner sc = new Scanner(System.in);
   double saldo;
 
+  double total;
+
+  String nombreTransaccion;
+
   Banco bn = new Banco();
 
   public void retiro(Cuenta cuenta) {
@@ -26,6 +30,7 @@ public class Transacciones {
     saldo = sc.nextDouble();
     cuenta.saldo = cuenta.saldo - saldo;
 
+    nombreTransaccion = "Retiro";
     FormaImp(cuenta,banco);
   }
 
@@ -39,6 +44,7 @@ public class Transacciones {
     // Calculo del Deposito
     cuenta.saldo = cuenta.saldo + saldo;
 
+    nombreTransaccion = "Deposito";
     FormaImp(cuenta,banco);
 
   }
@@ -52,6 +58,7 @@ public class Transacciones {
     cuentaRecibe.saldo = cuentaRecibe.saldo + saldo;
     cuentaTranfiere.saldo = cuentaTranfiere.saldo - saldo;
 
+    nombreTransaccion = "Transferencia";
     FormaImp(cuentaTranfiere,banco);
 
   }
@@ -70,7 +77,7 @@ public class Transacciones {
       switch (seleccion) {
         case 1:
         {
-          generarPDF.imprimir(cuenta, banco, cuenta.saldo, "deposito");
+          generarPDF.imprimir(cuenta, banco, cuenta.saldo, nombreTransaccion);
           System.out.println("PDF Created");
           bandera = true;
           break;
@@ -78,7 +85,7 @@ public class Transacciones {
 
         case 2:
         {
-          generarCorreo.imprimir(cuenta, banco, cuenta.saldo, "deposito");
+          generarCorreo.imprimir(cuenta, banco, cuenta.saldo, nombreTransaccion);
           System.out.println("Correo enviado");
           bandera = true;
           break;
@@ -86,7 +93,7 @@ public class Transacciones {
 
         case 3:
         {
-          generarImpresionConsola.imprimir(cuenta, banco, cuenta.saldo, "deposito");
+          generarImpresionConsola.imprimir(cuenta, banco, cuenta.saldo, nombreTransaccion);
           bandera = true;
           break;
         }

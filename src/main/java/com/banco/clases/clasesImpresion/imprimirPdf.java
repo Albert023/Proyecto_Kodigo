@@ -29,37 +29,49 @@ public class imprimirPdf implements Imprimir {
     // Creating a Document
     Document document = new Document(pdfDoc);
     // Add Content
-    // String content = "Lorem ipsum dolor sit amet...";
     Paragraph paragraph1 = new Paragraph(banco.getNombreBanco());
     Paragraph paragraph2 = new Paragraph(banco.getDireccion());
     Paragraph paragraph3 = new Paragraph(transaccion);
     Paragraph paragraph4 = new Paragraph(cuenta.getNombre() + " | " + cuenta.getNumCuenta());
-    Paragraph paragraph5 = new Paragraph(transaccion);
-
+    Paragraph paragraph5 = new Paragraph("Monto "+transaccion+": ");
+    Paragraph paragraph6 = new Paragraph(String.valueOf(deposito));
+    Paragraph paragraph7 = new Paragraph("Monto en Cuenta: ");
+    Paragraph paragraph8 = new Paragraph(String.valueOf(cuenta.getSaldo()));
+    Paragraph paragraph9 = new Paragraph("Total: ");
+    Paragraph paragraph10 = new Paragraph(String.valueOf(cuenta.getSaldo()+deposito));
+    //
     paragraph1.setFontSize(14);
     paragraph1.setTextAlignment(TextAlignment.LEFT);
+
+    paragraph2.setTextAlignment(TextAlignment.CENTER);
+    paragraph3.setTextAlignment(TextAlignment.CENTER);
+    paragraph4.setTextAlignment(TextAlignment.CENTER);
+    paragraph5.setTextAlignment(TextAlignment.LEFT);
+    paragraph6.setTextAlignment(TextAlignment.RIGHT);
+    paragraph7.setTextAlignment(TextAlignment.LEFT);
+    paragraph8.setTextAlignment(TextAlignment.RIGHT);
+    paragraph9.setTextAlignment(TextAlignment.LEFT);
+    paragraph10.setTextAlignment(TextAlignment.RIGHT);
+
     paragraph1.setBorder(Border.NO_BORDER);
     paragraph1.setFirstLineIndent(20);
-    paragraph1.setItalic();
     paragraph1.setBold();
-    paragraph1.setMargin(10);
+    //paragraph1.setMargin(10);
     paragraph1.setPaddingLeft(10);
     paragraph1.setPaddingRight(10);
     paragraph1.setWidth(1000);
     paragraph1.setHeight(100);
-
+    //añadiendo parrafos
     document.add(paragraph1);
     document.add(paragraph2);
     document.add(paragraph3);
     document.add(paragraph4);
     document.add(paragraph5);
-    // Adding a list
-    List list = new List();
-    list.add(String.valueOf(cuenta.getNumCuenta()));
-    list.add(transaccion);
-    list.add(cuenta.getNombre());
-    list.add(String.valueOf(deposito));
-    document.add(list);
+    document.add(paragraph6);
+    document.add(paragraph7);
+    document.add(paragraph8);
+    document.add(paragraph9);
+    document.add(paragraph10);
     // Closing the document
     document.close();
   }
