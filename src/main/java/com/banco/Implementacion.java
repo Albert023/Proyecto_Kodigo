@@ -10,7 +10,7 @@ public class Implementacion {
 
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    double saldo;
+    double saldo = 0;
     int seleccion;
     boolean bandera = false;
     Transacciones transaccion = new Transacciones();
@@ -18,11 +18,20 @@ public class Implementacion {
     Persona persona1 = new Persona("Alberto", "Chinchilla", "jach20232417@gmail.com", "76200295");
     Cliente cliente1 = new Cliente(persona1);
 
-    System.out.println("Por favor digite el saldo con el que quiere abrir la cuenta");
-    saldo = sc.nextDouble();
+
+    while (!bandera){
+      System.out.println("Por favor digite el saldo con el que quiere abrir la cuenta");
+      saldo = sc.nextDouble();
+      if(saldo >= 25){
+        bandera = true;
+      }else {
+        bandera = false;
+      }
+    }
+
     Cuenta cuenta1 = new Cuenta(saldo, 34555123, cliente1, persona1);
     Cuenta cuenta2 = new Cuenta(saldo, 45555123, cliente1, persona1);
-
+    bandera = false;
     while (!bandera) {
       System.out.println(
           "Por favor seleccione el numero de la transaccion que desea realizar : \n"

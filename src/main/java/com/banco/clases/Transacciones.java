@@ -11,15 +11,13 @@ public class Transacciones {
   Imprimir generarPDF = new imprimirPdf();
   Imprimir generarCorreo = new imprimirCorreo();
   Scanner sc = new Scanner(System.in);
-  private String nombreBanco;
-  private String direccionBanco;
   double saldo;
   Banco bn = new Banco();
 
   public void retiro(Cuenta cuenta) {
 
     bn.menu();
-    Banco banco = new Banco(nombreBanco, 1, direccionBanco);
+    Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
 
     System.out.println("Digite el monto a retirar " + cuenta.nombre);
     saldo = sc.nextDouble();
@@ -35,7 +33,7 @@ public class Transacciones {
   public void deposito(Cuenta cuenta) {
     // instanciación
     bn.menu();
-    Banco banco = new Banco(nombreBanco, 1, direccionBanco);
+    Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
     // Datos a ingresar
     System.out.println("Digite el monto a depositar " + cuenta.nombre);
     saldo = sc.nextDouble();
@@ -51,7 +49,7 @@ public class Transacciones {
 
   public void transferencia(Cuenta cuentaTranfiere, Cuenta cuentaRecibe) {
     bn.menu();
-    Banco banco = new Banco(nombreBanco, 1, direccionBanco);
+    Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
 
     System.out.println("Digite el monto a a transferir");
     saldo = sc.nextDouble();

@@ -30,24 +30,29 @@ public class imprimirPdf implements Imprimir {
     Document document = new Document(pdfDoc);
     // Add Content
     // String content = "Lorem ipsum dolor sit amet...";
-    Paragraph paragraph = new Paragraph(banco.getNombreBanco());
+    Paragraph paragraph1 = new Paragraph(banco.getNombreBanco());
     Paragraph paragraph2 = new Paragraph(banco.getDireccion());
     Paragraph paragraph3 = new Paragraph(transaccion);
     Paragraph paragraph4 = new Paragraph(cuenta.getNombre() + " | " + cuenta.getNumCuenta());
     Paragraph paragraph5 = new Paragraph(transaccion);
 
-    paragraph.setFontSize(14);
-    paragraph.setTextAlignment(TextAlignment.LEFT);
-    paragraph.setBorder(Border.NO_BORDER);
-    paragraph.setFirstLineIndent(20);
-    paragraph.setItalic();
-    paragraph.setBold();
-    paragraph.setMargin(10);
-    paragraph.setPaddingLeft(10);
-    paragraph.setPaddingRight(10);
-    paragraph.setWidth(1000);
-    paragraph.setHeight(100);
-    document.add(paragraph);
+    paragraph1.setFontSize(14);
+    paragraph1.setTextAlignment(TextAlignment.LEFT);
+    paragraph1.setBorder(Border.NO_BORDER);
+    paragraph1.setFirstLineIndent(20);
+    paragraph1.setItalic();
+    paragraph1.setBold();
+    paragraph1.setMargin(10);
+    paragraph1.setPaddingLeft(10);
+    paragraph1.setPaddingRight(10);
+    paragraph1.setWidth(1000);
+    paragraph1.setHeight(100);
+
+    document.add(paragraph1);
+    document.add(paragraph2);
+    document.add(paragraph3);
+    document.add(paragraph4);
+    document.add(paragraph5);
     // Adding a list
     List list = new List();
     list.add(String.valueOf(cuenta.getNumCuenta()));
