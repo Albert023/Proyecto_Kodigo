@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 
 public class imprimirPdf implements Imprimir {
 
-  public void imprimir(Cuenta cuenta, Banco banco, double deposito, String transaccion) {
+  public void imprimir(Cuenta cuenta, Banco banco, double deposito, double total ,String transaccion) {
     String dest = "Recibo " + cuenta.getNombre() + ".pdf";
     PdfWriter writer;
     try {
@@ -38,7 +38,7 @@ public class imprimirPdf implements Imprimir {
     Paragraph paragraph7 = new Paragraph("Monto en Cuenta: ");
     Paragraph paragraph8 = new Paragraph(String.valueOf(cuenta.getSaldo()));
     Paragraph paragraph9 = new Paragraph("Total: ");
-    Paragraph paragraph10 = new Paragraph(String.valueOf(cuenta.getSaldo()+deposito));
+    Paragraph paragraph10 = new Paragraph(String.valueOf(total));
     //
     paragraph1.setFontSize(14);
     paragraph1.setTextAlignment(TextAlignment.LEFT);

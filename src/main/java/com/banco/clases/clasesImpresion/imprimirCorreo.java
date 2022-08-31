@@ -14,10 +14,10 @@ import javax.mail.internet.MimeMultipart;
 
 public class imprimirCorreo implements Imprimir {
 
-  public void imprimir(Cuenta cuenta, Banco banco, double deposito, String transaccion) {
+  public void imprimir(Cuenta cuenta, Banco banco, double deposito, double total,String transaccion) {
 
     Imprimir generarPDF = new imprimirPdf();
-    generarPDF.imprimir(cuenta, banco, deposito, transaccion);
+    generarPDF.imprimir(cuenta, banco, deposito, total,transaccion);
 
     Properties props = new Properties();
     props.put("mail.smtp.auth", "true");

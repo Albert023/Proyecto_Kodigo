@@ -28,7 +28,7 @@ public class Transacciones {
 
     System.out.println("Digite el monto a retirar " + cuenta.nombre);
     saldo = sc.nextDouble();
-    cuenta.saldo = cuenta.saldo - saldo;
+    total = cuenta.saldo - saldo;
 
     nombreTransaccion = "Retiro";
     FormaImp(cuenta,banco);
@@ -42,7 +42,7 @@ public class Transacciones {
     System.out.println("Digite el monto a depositar " + cuenta.nombre);
     saldo = sc.nextDouble();
     // Calculo del Deposito
-    cuenta.saldo = cuenta.saldo + saldo;
+    total = cuenta.saldo + saldo;
 
     nombreTransaccion = "Deposito";
     FormaImp(cuenta,banco);
@@ -56,7 +56,7 @@ public class Transacciones {
     System.out.println("Digite el monto a a transferir");
     saldo = sc.nextDouble();
     cuentaRecibe.saldo = cuentaRecibe.saldo + saldo;
-    cuentaTranfiere.saldo = cuentaTranfiere.saldo - saldo;
+    total = cuentaTranfiere.saldo - saldo;
 
     nombreTransaccion = "Transferencia";
     FormaImp(cuentaTranfiere,banco);
@@ -77,7 +77,7 @@ public class Transacciones {
       switch (seleccion) {
         case 1:
         {
-          generarPDF.imprimir(cuenta, banco, cuenta.saldo, nombreTransaccion);
+          generarPDF.imprimir(cuenta, banco, saldo ,total, nombreTransaccion);
           System.out.println("PDF Created");
           bandera = true;
           break;
@@ -85,7 +85,7 @@ public class Transacciones {
 
         case 2:
         {
-          generarCorreo.imprimir(cuenta, banco, cuenta.saldo, nombreTransaccion);
+          generarCorreo.imprimir(cuenta, banco, saldo ,total, nombreTransaccion);
           System.out.println("Correo enviado");
           bandera = true;
           break;
@@ -93,7 +93,7 @@ public class Transacciones {
 
         case 3:
         {
-          generarImpresionConsola.imprimir(cuenta, banco, cuenta.saldo, nombreTransaccion);
+          generarImpresionConsola.imprimir(cuenta, banco, saldo ,total, nombreTransaccion);
           bandera = true;
           break;
         }
