@@ -8,5 +8,7 @@ public class imprimirConsola implements Imprimir {
   @Override
   public void imprimir(Cuenta cuenta, Banco banco, double deposito, String transaccion) {
     // agregar codigo
+
+    System.out.println("Recibo");
   }
 }

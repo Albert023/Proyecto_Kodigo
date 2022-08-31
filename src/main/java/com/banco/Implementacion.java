@@ -37,7 +37,7 @@ public class Implementacion {
           "Por favor seleccione el numero de la transaccion que desea realizar : \n"
               + "1. Deposito \n"
               + "2. Retiro \n"
-              + "3. Transferencia a otra cuenta \n");
+              + "3. Transferencia a otra cuenta ");
       seleccion = sc.nextInt();
       switch (seleccion) {
         case 1:

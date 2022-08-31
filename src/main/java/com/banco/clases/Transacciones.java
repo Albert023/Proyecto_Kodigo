@@ -1,5 +1,6 @@
 package com.banco.clases;
 
+import com.banco.clases.clasesImpresion.imprimirConsola;
 import com.banco.clases.clasesImpresion.imprimirCorreo;
 import com.banco.clases.clasesImpresion.imprimirPdf;
 import com.banco.interfaces.Imprimir;
@@ -10,8 +11,10 @@ import lombok.NoArgsConstructor;
 public class Transacciones {
   Imprimir generarPDF = new imprimirPdf();
   Imprimir generarCorreo = new imprimirCorreo();
+  Imprimir generarImpresionConsola = new imprimirConsola();
   Scanner sc = new Scanner(System.in);
   double saldo;
+
   Banco bn = new Banco();
 
   public void retiro(Cuenta cuenta) {
@@ -23,11 +26,7 @@ public class Transacciones {
     saldo = sc.nextDouble();
     cuenta.saldo = cuenta.saldo - saldo;
 
-    generarPDF.imprimir(cuenta, banco, cuenta.saldo, "deposito");
-    System.out.println("PDF Created");
-
-    generarCorreo.imprimir(cuenta, banco, cuenta.saldo, "deposito");
-    System.out.println("Correo enviado");
+    FormaImp(cuenta,banco);
   }
 
   public void deposito(Cuenta cuenta) {
@@ -40,11 +39,8 @@ public class Transacciones {
     // Calculo del Deposito
     cuenta.saldo = cuenta.saldo + saldo;
 
-    generarPDF.imprimir(cuenta, banco, cuenta.saldo, "deposito");
-    System.out.println("PDF Created");
+    FormaImp(cuenta,banco);
 
-    generarCorreo.imprimir(cuenta, banco, cuenta.saldo, "deposito");
-    System.out.println("Correo enviado");
   }
 
   public void transferencia(Cuenta cuentaTranfiere, Cuenta cuentaRecibe) {
@@ -56,10 +52,54 @@ public class Transacciones {
     cuentaRecibe.saldo = cuentaRecibe.saldo + saldo;
     cuentaTranfiere.saldo = cuentaTranfiere.saldo - saldo;
 
-    generarPDF.imprimir(cuentaTranfiere, banco, cuentaTranfiere.saldo, "deposito");
-    System.out.println("PDF Created");
+    FormaImp(cuentaTranfiere,banco);
 
-    generarCorreo.imprimir(cuentaTranfiere, banco, cuentaTranfiere.saldo, "deposito");
-    System.out.println("Correo enviado");
   }
+
+  public void FormaImp(Cuenta cuenta, Banco banco){
+    int seleccion = 0;
+    boolean bandera =false;
+
+    while (!bandera) {
+      System.out.println(
+              "Por favor seleccione el numero de la transaccion que desea realizar : \n"
+                      + "1. Solo Generar PDF \n"
+                      + "2. Enviar una copia al correo electronico \n"
+                      + "3. Solo mostrar en consola ");
+      seleccion = sc.nextInt();
+      switch (seleccion) {
+        case 1:
+        {
+          generarPDF.imprimir(cuenta, banco, cuenta.saldo, "deposito");
+          System.out.println("PDF Created");
+          bandera = true;
+          break;
+        }
+
+        case 2:
+        {
+          generarCorreo.imprimir(cuenta, banco, cuenta.saldo, "deposito");
+          System.out.println("Correo enviado");
+          bandera = true;
+          break;
+        }
+
+        case 3:
+        {
+          generarImpresionConsola.imprimir(cuenta, banco, cuenta.saldo, "deposito");
+          bandera = true;
+          break;
+        }
+
+        default:
+        {
+          System.out.println("Por favor digite un numero valido");
+          break;
+        }
+      }
+    }
+
+  }
+
+
 }
