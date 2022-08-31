@@ -3,16 +3,41 @@ package com.banco.clases.clasesImpresion;
 import com.banco.clases.Banco;
 import com.banco.clases.Cuenta;
 import com.banco.interfaces.Imprimir;
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.borders.Border;
+import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.properties.TextAlignment;
 import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
 
 public class imprimirPdf implements Imprimir {
+
+  Image image;
+
+  private void imagenPDF(String nombre) {
+    String imFile = "src/main/java/com/banco/recursos/"+nombre+".png";
+    //String imFile = "../recursos/BancoABANK.png";
+    ImageData data = null;
+    try {
+      data = ImageDataFactory.create(imFile);
+    } catch (MalformedURLException e) {
+      throw new RuntimeException(e);
+    }
+    image = new Image(data);
+    image.setPadding(20);
+    image.setMarginTop(20);
+    image.setWidth(200);
+    image.setMaxHeight(250);
+    image.setAutoScale(false);
+    image.setTextAlignment(TextAlignment.LEFT);
+    //document.add(image);
+  }
 
   public void imprimir(Cuenta cuenta, Banco banco, double deposito, double total ,String transaccion) {
     String dest = "Recibo " + cuenta.getNombre() + ".pdf";
@@ -41,7 +66,7 @@ public class imprimirPdf implements Imprimir {
     Paragraph paragraph10 = new Paragraph(String.valueOf(total));
     //
     paragraph1.setFontSize(14);
-    paragraph1.setTextAlignment(TextAlignment.LEFT);
+    paragraph1.setTextAlignment(TextAlignment.RIGHT);
 
     paragraph2.setTextAlignment(TextAlignment.CENTER);
     paragraph3.setTextAlignment(TextAlignment.CENTER);
@@ -61,7 +86,10 @@ public class imprimirPdf implements Imprimir {
     paragraph1.setPaddingRight(10);
     paragraph1.setWidth(1000);
     paragraph1.setHeight(100);
+    //
+     imagenPDF(banco.getNombreBanco());
     //añadiendo parrafos
+    document.add(image);
     document.add(paragraph1);
     document.add(paragraph2);
     document.add(paragraph3);

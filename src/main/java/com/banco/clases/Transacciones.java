@@ -14,7 +14,6 @@ public class Transacciones {
   Imprimir generarImpresionConsola = new imprimirConsola();
   Scanner sc = new Scanner(System.in);
   double saldo;
-
   double total;
 
   String nombreTransaccion;
