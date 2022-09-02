@@ -58,7 +58,7 @@ public class funcionesPersonas extends conexion{
         return ids;
     }
 
-    public static void main (String[]args){
+    public void main (String[]args){
         Persona pr = new Persona();
         funcionesPersonas fp = new funcionesPersonas();
         pr.setId(fp.idIncremental());
