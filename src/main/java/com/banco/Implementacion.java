@@ -15,7 +15,8 @@ public class Implementacion {
     boolean bandera = false;
     Transacciones transaccion = new Transacciones();
 
-    Persona persona1 = new Persona("Alberto", "Chinchilla", "jach20232417@gmail.com", "76200295");
+    Persona persona1 = new Persona("Alberto", "Chinchilla", "76200295","jach20232417@gmail.com", "2344433-3",
+            "albert","bytlsJNUZZ");
     Cliente cliente1 = new Cliente(persona1);
 
 

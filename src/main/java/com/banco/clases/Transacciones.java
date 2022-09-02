@@ -25,7 +25,7 @@ public class Transacciones {
     bn.menu();
     Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
 
-    System.out.println("Digite el monto a retirar " + cuenta.nombre);
+    System.out.println("Digite el monto a retirar " + cuenta.getNombre());
     saldo = sc.nextDouble();
     total = cuenta.saldo - saldo;
 
@@ -38,7 +38,7 @@ public class Transacciones {
     bn.menu();
     Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
     // Datos a ingresar
-    System.out.println("Digite el monto a depositar " + cuenta.nombre);
+    System.out.println("Digite el monto a depositar " + cuenta.getNombre());
     saldo = sc.nextDouble();
     // Calculo del Deposito
     total = cuenta.saldo + saldo;

@@ -16,7 +16,7 @@ public class Cuenta extends Cliente {
 
   public void generarCuenta(Cliente cliente) {
 
-    System.out.println(cliente.nombre);
+    System.out.println(cliente.getNombre());
     setSaldo(2000);
   }
 }
