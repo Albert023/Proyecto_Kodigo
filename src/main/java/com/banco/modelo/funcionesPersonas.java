@@ -58,7 +58,7 @@ public class funcionesPersonas extends conexion{
         return ids;
     }
 
-    public void main (String[]args){
+    public static void main (String[]args){
         Persona pr = new Persona();
         funcionesPersonas fp = new funcionesPersonas();
         pr.setId(fp.idIncremental());
@@ -66,8 +66,8 @@ public class funcionesPersonas extends conexion{
         pr.setApellido("Bradbury");
         pr.setTelefono("3455-4344");
         pr.setEmail("B@gmail.com");
-        pr.setDni("234463-6");
-        pr.setUsuario("ray23");
+        pr.setDni("234453-6");
+        pr.setUsuario("ray");
         pr.setClave("gH123456%&");
         if (fp.guardarCliente(pr)) {
             System.out.println("Datos guardados");
