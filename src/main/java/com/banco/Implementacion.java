@@ -22,18 +22,19 @@ public class Implementacion {
     //        "aurel","bytlsJNUZZ");
     //Cliente cliente1 = new Cliente(persona1);
 
-    Persona persona1 = new Persona();
-    Cliente cliente1 = new Cliente(persona1);
+//    Persona persona1 = new Persona();
+//    Cliente cliente1 = new Cliente(persona1);
+//
+     menuCrearPersona mp = new menuCrearPersona();
+    mp.exec();
+//    mp.menuPersona();
+//    saldo = saldoApertura();
+//
+//    Cuenta cuenta1 = new Cuenta(saldo, 34555123, cliente1, persona1);
+//    Cuenta cuenta2 = new Cuenta(saldo, 45555123, cliente1, persona1);
+//    menuTransaccion(cuenta1,cuenta2);
 
-    menuCrearPersona mp = new menuCrearPersona();
-    mp.menuPersona();
-    saldo = saldoApertura();
 
-    Cuenta cuenta1 = new Cuenta(saldo, 34555123, cliente1, persona1);
-    Cuenta cuenta2 = new Cuenta(saldo, 45555123, cliente1, persona1);
-    menuTransaccion(cuenta1,cuenta2);
-
-
-    System.out.println(cuenta1.getSaldo());
+    //System.out.println(cuenta1.getSaldo());
   }
 }

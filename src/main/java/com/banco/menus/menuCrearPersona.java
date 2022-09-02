@@ -1,14 +1,28 @@
 package com.banco.menus;
 
+import com.banco.clases.Cliente;
+import com.banco.clases.Cuenta;
 import com.banco.clases.Persona;
 import com.banco.modelo.funcionesPersonas;
 
 import java.util.Scanner;
 
+import static com.banco.menus.MenuSaldoApertura.saldoApertura;
+import static com.banco.menus.MenuTransacciones.menuTransaccion;
+
 public class menuCrearPersona {
 
     Persona pr = new Persona();
     funcionesPersonas fp = new funcionesPersonas();
+
+    String nombre;
+    String apellido;
+    String telefono;
+    String correo;
+    String dni;
+    String usuario;
+    String clave;
+    String confClave;
 
 
     public void menuPersona(){
@@ -33,14 +47,7 @@ public class menuCrearPersona {
 
     public void crearpersona(){
 
-        String nombre;
-        String apellido;
-        String telefono;
-        String correo;
-        String dni;
-        String usuario;
-        String clave;
-        String confClave;
+
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Inserte su Nombre: ");
@@ -70,16 +77,33 @@ public class menuCrearPersona {
         pr.setClave(clave);
 
        //if (nombre!=" " && apellido!=" " && telefono!=" " && correo!=" " && dni!=" " && usuario!=" " && clave!=" " && confClave!=" " && clave == confClave){
-            if (fp.guardarCliente(pr)) {
-                System.out.println("Datos guardados");
-                Persona persona = new Persona(nombre,apellido,telefono,correo,dni,usuario,clave);
-                
-            } else {
-                System.out.println("Error al gurdar datos");
-            }
         //}else {
          //   System.out.println("");
         //}
 
     }
+
+    public  void exec (){
+
+        int saldo = 0;
+
+        crearpersona();
+        if (fp.guardarCliente(pr)) {
+            System.out.println("Datos guardados");
+            Persona persona1 = new Persona(nombre,apellido,telefono,correo,dni,usuario,clave);
+            Cliente cliente1 = new Cliente(persona1);
+            
+            saldo = saldoApertura();
+
+            Cuenta cuenta1 = new Cuenta(saldo, 34555123, cliente1, persona1);
+            Cuenta cuenta2 = new Cuenta(saldo, 45555123, cliente1, persona1);
+            menuTransaccion(cuenta1,cuenta2);
+            System.out.println(cuenta1.getSaldo());
+
+        } else {
+            System.out.println("Error al gurdar datos");
+        }
+
+    }
+
 }
