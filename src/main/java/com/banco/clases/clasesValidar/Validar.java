@@ -55,7 +55,14 @@ public class Validar {
         System.out.println("Las claves no coinciden por favor digite la clave nuevamente");
         clave2 = sc.next();
         }
-
-
+    }
+    public double validarSaldo(){
+        double saldo;
+        while (!sc.hasNextDouble()){
+      System.out.println("Por favor digite un saldo valido\n$");
+      sc.next();
+        }
+        saldo = sc.nextDouble();
+        return saldo;
     }
 }

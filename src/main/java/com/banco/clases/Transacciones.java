@@ -3,6 +3,7 @@ package com.banco.clases;
 import com.banco.clases.clasesImpresion.ImprimirConsola;
 import com.banco.clases.clasesImpresion.ImprimirCorreo;
 import com.banco.clases.clasesImpresion.imprimirPdf;
+import com.banco.clases.clasesValidar.Validar;
 import com.banco.interfaces.Imprimir;
 import com.banco.menus.menuSeleccionBanco;
 
@@ -41,6 +42,7 @@ public class Transacciones {
   }
 
   Banco bn = new Banco();
+  Validar validar = new Validar();
   menuSeleccionBanco mb = new menuSeleccionBanco();
   ArrayList<String> dataBanco = new ArrayList<>();
   private String nombre;
@@ -57,7 +59,7 @@ public class Transacciones {
 
     System.out.println("Digite el monto a retirar " + cuenta.getNombre()+"(mayor o igual a $10):");
     System.out.print("$");
-    saldo = sc.nextDouble();
+    saldo = validar.validarSaldo();
     total = cuenta.saldo - saldo;
 
     setSaldo(saldo);
@@ -77,7 +79,7 @@ public class Transacciones {
     Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
     System.out.println("Digite el monto a depositar " + cuenta.getNombre()+"(mayor o igual a $10):");
     System.out.print("$");
-    saldo = sc.nextDouble();
+    saldo = validar.validarSaldo();
     total = cuenta.saldo + saldo;
 
     setSaldo(saldo);
@@ -100,7 +102,7 @@ public class Transacciones {
 
     System.out.println("Digite el monto a a transferir(mayor o igual a $10)");
     System.out.print("$");
-    saldo = sc.nextDouble();
+    saldo = validar.validarSaldo();
     cuentaRecibe.saldo = cuentaRecibe.saldo + saldo;
     total = cuentaTranfiere.saldo - saldo;
 

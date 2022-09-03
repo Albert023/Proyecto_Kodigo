@@ -31,7 +31,7 @@ public class ImprimirCorreo implements Imprimir {
     Session sesion = Session.getDefaultInstance(props);
 
     String correoRemitente = "proyecto.kodigo.1@gmail.com";
-    String contrasenia = "bawnvagvvlbuhgpi";
+    String contrasenia = "ygbopzfhuchxohxz";
     String destinatario = cuenta.getEmail();
     String asunto = "Recibo";
     String mensaje = "recibo";
