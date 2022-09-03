@@ -3,20 +3,23 @@ package com.banco.menus;
 import com.banco.clases.Cliente;
 import com.banco.clases.Cuenta;
 import com.banco.clases.Persona;
+import com.banco.clases.clasesValidar.Validar;
 import com.banco.modelo.funcionesPersonas;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 import static com.banco.menus.MenuSaldoApertura.saldoApertura;
 import static com.banco.menus.MenuTransacciones.menuTransaccion;
 
 public class menuCrearPersona {
-
+    Validar validar = new Validar();
     Persona pr = new Persona();
     funcionesPersonas fp = new funcionesPersonas();
 
     String nombre;
     String apellido;
+
     String telefono;
     String correo;
     String dni;
@@ -46,31 +49,41 @@ public class menuCrearPersona {
     }
 
     public void crearpersona(){
-
-
+        Pattern pattern1 = Pattern.compile("[A-Za-z]*");
+        Pattern pattern2 = Pattern.compile("[0-9]*");
+        Pattern pattern3 = Pattern.compile("[0-9-]*");
 
         Scanner sc = new Scanner(System.in);
+
         System.out.println("Inserte su Nombre: ");
-        nombre = sc.next();
+        nombre = validar.validarNombre();
+
         System.out.println("Inserte su Apellido: ");
-        apellido = sc.next();
+        apellido = validar.validarApellido();
+
         System.out.println("Inserte su Telefono: ");
-        telefono = sc.next();
+        telefono = validar.validarTelefono();
+
         System.out.println("Inserte su Correo: ");
         correo = sc.next();
+
         System.out.println("Inserte su DNI: ");
-        dni = sc.next();
+        dni = validar.validarDNI();
+
         System.out.println("Inserte su Usuario: ");
         usuario = sc.next();
+
         System.out.println("Inserte su Clave: ");
         clave = sc.next();
+
         System.out.println("Confirme Su Clave");
         confClave = sc.next();
+        validar.validarMismaClave(clave,confClave);
+
 
         pr.setId(fp.idIncremental());
         pr.setNombre(nombre);
         pr.setApellido(apellido);
-        pr.setTelefono(telefono);
         pr.setEmail(correo);
         pr.setDni(dni);
         pr.setUsuario(usuario);
@@ -90,7 +103,7 @@ public class menuCrearPersona {
         crearpersona();
         if (fp.guardarCliente(pr)) {
             System.out.println("Datos guardados");
-            Persona persona1 = new Persona(nombre,apellido,telefono,correo,dni,usuario,clave);
+            Persona persona1 = new Persona(nombre,apellido,pr.getTelefono(),correo,dni,usuario,clave);
             Cliente cliente1 = new Cliente(persona1);
             
             saldo = saldoApertura();
