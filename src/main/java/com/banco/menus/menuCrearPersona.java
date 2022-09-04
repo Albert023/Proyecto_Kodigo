@@ -9,9 +9,6 @@ import com.banco.modelo.funcionesPersonas;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-//import static com.banco.menus.MenuSaldoApertura.saldoApertura;
-import static com.banco.menus.MenuTransacciones.menuTransaccion;
-
 public class menuCrearPersona {
     Validar validar = new Validar();
     Persona pr = new Persona();
@@ -61,7 +58,6 @@ public class menuCrearPersona {
         confClave = sc.next();
         validar.validarMismaClave(clave,confClave);
 
-
         pr.setId(fp.idIncremental());
         pr.setNombre(nombre);
         pr.setApellido(apellido);
@@ -88,7 +84,9 @@ public class menuCrearPersona {
 
             Cuenta cuenta1 = new Cuenta(saldo, 34555123, cliente1, persona1);
             Cuenta cuenta2 = new Cuenta(saldo, 45555123, cliente1, persona1);
-            menuTransaccion(cuenta1,cuenta2);
+
+            MenuTransacciones mt = new MenuTransacciones();
+            mt.menuTransaccion(cuenta1,cuenta2);
             System.out.println(cuenta1.getSaldo());
 
         } else {

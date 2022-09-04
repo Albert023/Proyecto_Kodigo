@@ -6,11 +6,9 @@ import com.banco.clases.Transacciones;
 import java.util.Scanner;
 
 public class MenuTransacciones {
-
-
     public static void menuTransaccion(Cuenta cuenta1, Cuenta cuenta2) {
         Scanner sc = new Scanner(System.in);
-        int seleccion;
+        int seleccion = 0;
         boolean bandera = false;
         Transacciones transaccion = new Transacciones();
 
@@ -21,7 +19,12 @@ public class MenuTransacciones {
                             + "2. Retiro \n"
                             + "3. Transferencia a otra cuenta ");
             System.out.println("Digite su opcion: ");
+            if (sc.hasNextInt()) {
             seleccion = Integer.parseInt(sc.nextLine());
+          } else {
+            System.out.println("no se permiten cadenas de texto");
+            menuTransaccion(cuenta1, cuenta2);
+           }
             switch (seleccion) {
                 case 1: {
 
@@ -45,28 +48,10 @@ public class MenuTransacciones {
 
                 default: {
                     System.out.println("Por favor digite un numero valido");
-                    System.out.println("\nDesea volver a intentarlo: \n"
-                            + "1. Si \n"
-                            + "2. No\n");
-                    System.out.println("Digite su opcion: ");
-
-                    int op = Integer.parseInt(sc.nextLine());
-
-                    switch (op) {
-                        case 1: {
-                            bandera = false;
-                            break;
-                        }
-
-                        case 2: {
-                            System.exit(0);
-                        }
-
-                        break;
+                    break;
                     }
 
                 }
             }
         }
-    }
 }
