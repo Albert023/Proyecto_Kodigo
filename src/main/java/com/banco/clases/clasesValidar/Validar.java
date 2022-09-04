@@ -7,7 +7,7 @@ public class Validar {
     Scanner sc = new Scanner(System.in);
     public String validarNombre() {
       String nombre;
-      Pattern pattern = Pattern.compile("[A-Za-z]*");
+      Pattern pattern = Pattern.compile("[a-zA-ZñÑáÁéÉíÍóÓúÚ\\s]*");
       while (!sc.hasNext(pattern)) {
           System.out.println("Digite un nombre valido");
           sc.next();
@@ -17,7 +17,7 @@ public class Validar {
   }
 
     public  String validarApellido(){
-      Pattern pattern = Pattern.compile("[A-Za-z]*");
+      Pattern pattern = Pattern.compile("[a-zA-ZñÑáÁéÉíÍóÓúÚ\\s]*");
       String apellido;
       while (!sc.hasNext(pattern)) {
           System.out.println("Digite un apellido valido");
@@ -29,7 +29,7 @@ public class Validar {
 
 
     public  String validarTelefono(){
-      Pattern pattern = Pattern.compile("[0-9]*");
+      Pattern pattern = Pattern.compile("[2,6,7]{1}[0-9]{3}[-][0-9]{4}");
       String telefono;
       while (!sc.hasNext(pattern)) {
           System.out.println("Digite un numero de telefono valido");
@@ -39,7 +39,7 @@ public class Validar {
       return telefono;
     }
     public String validarDNI(){
-        Pattern pattern = Pattern.compile("[0-9-]*");
+        Pattern pattern = Pattern.compile("[0-9]{8}[-][0-9]{1}");
         String DNI;
         while (!sc.hasNext(pattern)) {
             System.out.println("Digite un DNI valido");
@@ -48,6 +48,18 @@ public class Validar {
         DNI = sc.next();
         return DNI;
     }
+
+    public  String validarCorreo(){
+        Pattern pattern = Pattern.compile("[A-Za-z0-9+_.-]+@(.+)");
+        String correo;
+        while (!sc.hasNext(pattern)) {
+            System.out.println("Digite un correo valido");
+            sc.next();
+        }
+        correo = sc.next();
+        return correo;
+    }
+
 
     public void validarMismaClave(String clave, String clave2){
 

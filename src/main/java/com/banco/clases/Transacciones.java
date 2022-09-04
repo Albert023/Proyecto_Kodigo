@@ -19,7 +19,7 @@ import static com.banco.menus.menuFormaImpresion.FormaImp;
 
 @NoArgsConstructor
 public class Transacciones {
-  ImprimirPDF generarPDF = new imprimirPdf();
+  Imprimir generarPDF = new imprimirPdf();
   Imprimir generarCorreo = new ImprimirCorreo();
   Imprimir generarImpresionConsola = new ImprimirConsola();
 

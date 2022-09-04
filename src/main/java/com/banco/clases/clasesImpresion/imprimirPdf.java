@@ -19,7 +19,7 @@ import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
 import java.text.DecimalFormat;
 
-public class imprimirPdf implements ImprimirPDF {
+public class imprimirPdf implements Imprimir {
 
   Image image;
 
@@ -41,7 +41,7 @@ public class imprimirPdf implements ImprimirPDF {
     //document.add(image);
   }
 
-  public void imprimirPDF(Cuenta cuenta, Banco banco, Transacciones transaccion) {
+  public void imprimir(Cuenta cuenta, Banco banco, Transacciones transaccion) {
     String dest = "Recibo " + cuenta.getNombre() + ".pdf";
     PdfWriter writer;
     try {

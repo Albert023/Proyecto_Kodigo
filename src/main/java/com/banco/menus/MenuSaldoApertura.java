@@ -1,13 +1,15 @@
 package com.banco.menus;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuSaldoApertura {
 
-    public static int saldoApertura() {
-        boolean bandera = false;
-        Scanner sc = new Scanner(System.in);
-        int saldo = 0;
+    static boolean bandera = false;
+    static Scanner sc = new Scanner(System.in);
+    static  int saldo = 0;
+
+    public static  int saldoApertura() {
 
         while (!bandera) {
             System.out.println("Por favor digite el saldo con el que quiere abrir la cuenta(como minimo $25):");

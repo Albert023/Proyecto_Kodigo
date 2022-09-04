@@ -19,8 +19,8 @@ public class ImprimirCorreo implements Imprimir {
 
   public void imprimir(Cuenta cuenta, Banco banco, Transacciones transaccion) {
 
-    ImprimirPDF generarPDF = new imprimirPdf();
-    generarPDF.imprimirPDF(cuenta, banco, transaccion);
+    Imprimir generarPDF = new imprimirPdf();
+    generarPDF.imprimir(cuenta, banco, transaccion);
 
     Properties props = new Properties();
     props.put("mail.smtp.auth", "true");

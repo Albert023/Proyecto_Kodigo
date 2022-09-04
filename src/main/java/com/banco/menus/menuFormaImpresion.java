@@ -16,7 +16,7 @@ public class menuFormaImpresion {
     public static void FormaImp(Cuenta cuenta, Banco banco, Transacciones transacciones){
         int seleccion = 0;
         boolean bandera =false;
-        ImprimirPDF generarPDF = new imprimirPdf();
+        Imprimir generarPDF = new imprimirPdf();
         Imprimir generarCorreo = new ImprimirCorreo();
         Imprimir generarImpresionConsola = new ImprimirConsola();
 
@@ -38,7 +38,7 @@ public class menuFormaImpresion {
 
                 {
 
-                    generarPDF.imprimirPDF(cuenta, banco, transacciones);
+                    generarPDF.imprimir(cuenta, banco, transacciones);
                     System.out.println("PDF Created");
                     bandera = true;
                     break;
