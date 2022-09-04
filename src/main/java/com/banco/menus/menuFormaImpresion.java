@@ -20,9 +20,6 @@ public class menuFormaImpresion {
         Imprimir generarCorreo = new ImprimirCorreo();
         Imprimir generarImpresionConsola = new ImprimirConsola();
 
-        //Transacciones tr = new Transacciones();
-        //Transacciones transacciones = new Transacciones(tr.getSaldo(), tr.getTotal(), tr.getNombreTransaccion());
-
         Scanner sc = new Scanner(System.in);
 
         while (!bandera) {
@@ -32,7 +29,12 @@ public class menuFormaImpresion {
                             + "2. Enviar una copia al correo electronico \n"
                             + "3. Solo mostrar en consola ");
             System.out.println("\nDigite su opcion: ");
-            seleccion = sc.nextInt();
+            if (sc.hasNextInt()) {
+                seleccion = Integer.parseInt(sc.nextLine());
+            } else {
+                System.out.println("no se permiten cadenas de texto");
+                FormaImp(cuenta,banco,transacciones);
+            }
             switch (seleccion) {
                 case 1:
 
