@@ -13,6 +13,7 @@ public class menuSeleccionBanco {
 
     private  String direccion;
 
+    private  int selection;
     ArrayList<String> BancoE = new ArrayList<>();
 
     public ArrayList<String> menuBanco() {
@@ -62,7 +63,13 @@ public class menuSeleccionBanco {
                         + "8. Banco Industrial El Salvador \n"
                         + "9. Banco Azul de El Salvador");
         System.out.println("\nDigite su opcion: ");
-        int selection = na.nextInt();
+
+        if (na.hasNextInt()){
+            selection = na.nextInt();
+        }else {
+         System.out.println("no se permiten cadenas de texto");
+         menuBanco();
+        }
         if (selection <= 9 && selection != 0) {
            nombre = nombres.get(selection);
            direccion = direcciones.get(selection);

@@ -82,6 +82,7 @@ public class menuCrearPersona {
             System.out.println("Datos guardados");
             Persona persona1 = new Persona(nombre,apellido,pr.getTelefono(),correo,dni,usuario,clave);
             Cliente cliente1 = new Cliente(persona1);
+
             MenuSaldoApertura mp = new MenuSaldoApertura();
             saldo = mp.saldoApertura();
 
