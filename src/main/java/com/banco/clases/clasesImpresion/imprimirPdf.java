@@ -4,7 +4,6 @@ import com.banco.clases.Banco;
 import com.banco.clases.Cuenta;
 import com.banco.clases.Transacciones;
 import com.banco.interfaces.Imprimir;
-import com.banco.interfaces.ImprimirPDF;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -12,7 +11,6 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.element.Image;
-import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.properties.TextAlignment;
 import java.io.FileNotFoundException;
@@ -24,7 +22,7 @@ public class imprimirPdf implements Imprimir {
   Image image;
 
   private void imagenPDF(String nombre) {
-    String imFile = "src/main/java/com/banco/recursos/"+nombre+".png";
+    String imFile = "src/main/java/com/banco/recursos/" + nombre + ".png";
     ImageData data = null;
     try {
       data = ImageDataFactory.create(imFile);
@@ -38,7 +36,7 @@ public class imprimirPdf implements Imprimir {
     image.setMaxHeight(250);
     image.setAutoScale(false);
     image.setTextAlignment(TextAlignment.LEFT);
-    //document.add(image);
+    // document.add(image);
   }
 
   public void imprimir(Cuenta cuenta, Banco banco, Transacciones transaccion) {
@@ -60,13 +58,15 @@ public class imprimirPdf implements Imprimir {
     Paragraph paragraph1 = new Paragraph(banco.getNombreBanco());
     Paragraph paragraph2 = new Paragraph(banco.getDireccion());
     Paragraph paragraph3 = new Paragraph(transaccion.getNombreTransaccion());
-    Paragraph paragraph4 = new Paragraph(cuenta.getNombre() +" "+cuenta.getApellido() + " | " + cuenta.getNumCuenta());
-    Paragraph paragraph5 = new Paragraph("Monto "+transaccion.getNombreTransaccion()+": ");
-    Paragraph paragraph6 = new Paragraph(String.valueOf(transaccion.getSaldo())+" $ USD");
+    Paragraph paragraph4 =
+        new Paragraph(
+            cuenta.getNombre() + " " + cuenta.getApellido() + " | " + cuenta.getNumCuenta());
+    Paragraph paragraph5 = new Paragraph("Monto " + transaccion.getNombreTransaccion() + ": ");
+    Paragraph paragraph6 = new Paragraph(String.valueOf(transaccion.getSaldo()) + " $ USD");
     Paragraph paragraph7 = new Paragraph("Monto en Cuenta: ");
-    Paragraph paragraph8 = new Paragraph(String.valueOf(cuenta.getSaldo())+" $ USD");
+    Paragraph paragraph8 = new Paragraph(String.valueOf(cuenta.getSaldo()) + " $ USD");
     Paragraph paragraph9 = new Paragraph("Total: ");
-    Paragraph paragraph10 = new Paragraph(String.valueOf(transaccion.getTotal())+" $ USD");
+    Paragraph paragraph10 = new Paragraph(String.valueOf(transaccion.getTotal()) + " $ USD");
     //
     paragraph1.setFontSize(14);
     paragraph1.setTextAlignment(TextAlignment.RIGHT);
@@ -84,14 +84,14 @@ public class imprimirPdf implements Imprimir {
     paragraph1.setBorder(Border.NO_BORDER);
     paragraph1.setFirstLineIndent(20);
     paragraph1.setBold();
-    //paragraph1.setMargin(10);
+    // paragraph1.setMargin(10);
     paragraph1.setPaddingLeft(10);
     paragraph1.setPaddingRight(10);
     paragraph1.setWidth(1000);
     paragraph1.setHeight(100);
     //
-     imagenPDF(banco.getNombreBanco());
-    //añadiendo parrafos
+    imagenPDF(banco.getNombreBanco());
+    // añadiendo parrafos
     document.add(image);
     document.add(paragraph1);
     document.add(paragraph2);

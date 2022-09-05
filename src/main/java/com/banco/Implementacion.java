@@ -8,6 +8,5 @@ public class Implementacion {
 
     menuCrearPersona mp = new menuCrearPersona();
     mp.exec();
-
   }
 }

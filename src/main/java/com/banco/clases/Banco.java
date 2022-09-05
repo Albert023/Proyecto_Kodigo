@@ -1,8 +1,5 @@
 package com.banco.clases;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,5 +16,4 @@ public class Banco {
     this.identificador = identificador;
     this.direccion = direccion;
   }
-
 }

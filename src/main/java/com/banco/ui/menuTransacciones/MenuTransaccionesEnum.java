@@ -1,18 +1,17 @@
 package com.banco.ui.menuTransacciones;
 
-
 public enum MenuTransaccionesEnum {
-    Adicion("Deposito"),
-    Retiro("Retiro"),
-    Transferencia("Transferencia a otras cuentas");
+  Adicion("Deposito"),
+  Retiro("Retiro"),
+  Transferencia("Transferencia a otras cuentas");
 
-    private final String value;
+  private final String value;
 
-    MenuTransaccionesEnum(String value) {
-        this.value = value;
-    }
+  MenuTransaccionesEnum(String value) {
+    this.value = value;
+  }
 
-    public String toString() {
-        return this.value;
-    }
+  public String toString() {
+    return this.value;
+  }
 }

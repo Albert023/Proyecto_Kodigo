@@ -15,7 +15,14 @@ public class Persona {
   @Getter @Setter private String dni;
   @Getter @Setter private String clave;
 
-  public Persona(String nombre, String apellido, String telefono, String email, String dni, String usuario,  String clave) {
+  public Persona(
+      String nombre,
+      String apellido,
+      String telefono,
+      String email,
+      String dni,
+      String usuario,
+      String clave) {
     this.nombre = nombre;
     this.apellido = apellido;
     this.telefono = telefono;

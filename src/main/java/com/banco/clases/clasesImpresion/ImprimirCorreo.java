@@ -4,8 +4,6 @@ import com.banco.clases.Banco;
 import com.banco.clases.Cuenta;
 import com.banco.clases.Transacciones;
 import com.banco.interfaces.Imprimir;
-import com.banco.interfaces.ImprimirPDF;
-
 import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;

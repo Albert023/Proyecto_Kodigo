@@ -1,4 +1,3 @@
 package com.banco.modelo;
 
-public class envioCorreos {
-}
+public class envioCorreos {}

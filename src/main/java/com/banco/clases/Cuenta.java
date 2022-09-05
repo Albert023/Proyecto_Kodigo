@@ -13,6 +13,4 @@ public class Cuenta extends Cliente {
     this.saldo = saldo;
     this.numCuenta = numCuenta;
   }
-
-
 }
