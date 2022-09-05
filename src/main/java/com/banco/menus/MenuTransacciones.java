@@ -18,12 +18,7 @@ public class MenuTransacciones {
               + "2. Retiro \n"
               + "3. Transferencia a otra cuenta ");
       System.out.println("Digite su opcion: ");
-      if (sc.hasNextInt()) {
-        seleccion = Integer.parseInt(sc.nextLine());
-      } else {
-        System.out.println("no se permiten cadenas de texto");
-        menuTransaccion(cuenta1, cuenta2);
-      }
+      seleccion = Integer.parseInt(sc.nextLine());
       switch (seleccion) {
         case 1:
           {
