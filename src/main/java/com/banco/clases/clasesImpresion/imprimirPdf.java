@@ -41,6 +41,7 @@ public class imprimirPdf implements Imprimir {
 
   public void imprimir(Cuenta cuenta, Banco banco, Transacciones transaccion) {
     String dest = "Recibo " + cuenta.getNombre() + ".pdf";
+    //String dest = "C:/Users/adalb/Desktop/Recibo " + cuenta.getNombre() + ".pdf";
     PdfWriter writer;
     try {
       writer = new PdfWriter(dest);
