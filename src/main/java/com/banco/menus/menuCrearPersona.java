@@ -44,7 +44,6 @@ public class menuCrearPersona {
         break;
       }
     }
-
   }
 
   public void ingresar(){
@@ -78,11 +77,7 @@ public class menuCrearPersona {
   }
 
   public void crearpersona() {
-    Pattern pattern1 = Pattern.compile("[A-Za-z]*");
-    Pattern pattern2 = Pattern.compile("[0-9]*");
-    Pattern pattern3 = Pattern.compile("[0-9-]*");
-
-    Scanner sc = new Scanner(System.in);
+   Scanner sc = new Scanner(System.in);
 
     System.out.println("Inserte su Nombre: ");
     nombre = validar.validarNombre();
@@ -122,29 +117,5 @@ public class menuCrearPersona {
     } else {
       System.out.println("Error al gurdar datos");
     }
-  }
-
-  public void exec() {
-
-    int saldo = 0;
-
-    menu();
-    System.out.println(pr.getNombre()+ pr.getApellido()+ pr.getTelefono()+ pr.getEmail()+ pr.getDni()+ pr.getUsuario()+ pr.getClave());
-    System.out.println(nombre+apellido+telefono+correo+dni+usuario+clave);
-    Cliente cliente = new Cliente(nombre,apellido,telefono,correo,dni,usuario,clave);
-
-    MenuSaldoApertura mp = new MenuSaldoApertura();
-    saldo = mp.saldoApertura();
-
-    Cuenta cn = new Cuenta();
-    cn.ActivarCuenta();
-    String tipo1 = cn.ahorroCuenta();
-    String tipo2 = cn.corrienteCuenta();
-    Cuenta cuenta1 = new Cuenta(saldo, 34555123, tipo1, cn.getEstado(),cliente);
-    Cuenta cuenta2 = new Cuenta(saldo, 45555123,tipo2, cn.getEstado(),cliente);
-
-    MenuTransacciones mt = new MenuTransacciones();
-    mt.menuTransaccion(cuenta1, cuenta2);
-    System.out.println(cuenta1.getSaldo());
   }
 }
