@@ -34,7 +34,6 @@ public class Transacciones {
   private String direccion;
 
   public void retiro(Cuenta cuenta) {
-    // bn.menu();
     dataBanco = mb.menuBanco();
     nombre = dataBanco.get(0);
     direccion = dataBanco.get(1);
@@ -60,7 +59,6 @@ public class Transacciones {
   }
 
   public void deposito(Cuenta cuenta) {
-    // bn.menu();
     dataBanco = mb.menuBanco();
     nombre = dataBanco.get(0);
     direccion = dataBanco.get(1);
@@ -82,7 +80,6 @@ public class Transacciones {
   }
 
   public void transferencia(Cuenta cuentaTranfiere, Cuenta cuentaRecibe) {
-    // bn.menu();
     dataBanco = mb.menuBanco();
     nombre = dataBanco.get(0);
     direccion = dataBanco.get(1);
