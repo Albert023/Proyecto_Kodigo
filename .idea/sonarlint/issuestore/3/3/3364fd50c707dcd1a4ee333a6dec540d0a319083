@@ -1,0 +1,29 @@
+
+f	java:S1177"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£ó 
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(òÍÑ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ËúáÖøÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÔùÊÈ
+S	java:S106#"9Replace this use of System.out or System.err by a logger.(îİéıÿÿÿÿ
+@
+java:S5869+"*Remove duplicates in this character class.(ÛÉãæ
+K
+java:S6397+"5Replace this character class by the character itself.(ÛÉãæ
+9
+java:S6396+"#Remove this unnecessary quantifier.(ÛÉãæ
+R
+java:S6353+"<Use concise character class syntax '\\d' instead of '[0-9]'.(ÛÉãæ
+R
+java:S6353+"<Use concise character class syntax '\\d' instead of '[0-9]'.(ÛÉãæ
+N	java:S106."9Replace this use of System.out or System.err by a logger.(÷Ñ—æ
+K
+java:S63976"5Replace this character class by the character itself.(ò¢ËŸ
+9
+java:S63966"#Remove this unnecessary quantifier.(ò¢ËŸ
+R
+java:S63536"<Use concise character class syntax '\\d' instead of '[0-9]'.(ò¢ËŸ
+R
+java:S63536"<Use concise character class syntax '\\d' instead of '[0-9]'.(ò¢ËŸ
+S	java:S1069"9Replace this use of System.out or System.err by a logger.(ÈÚÔùÿÿÿÿ
+N	java:S106D"9Replace this use of System.out or System.err by a logger.(ö€œõ
+N	java:S106N"9Replace this use of System.out or System.err by a logger.(Ó²…Ö
+S	java:S106V"9Replace this use of System.out or System.err by a logger.(ëü¬µıÿÿÿÿ

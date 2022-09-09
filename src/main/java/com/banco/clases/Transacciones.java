@@ -1,111 +1,105 @@
 package com.banco.clases;
 
-import com.banco.clases.clasesImpresion.imprimirConsola;
-import com.banco.clases.clasesImpresion.imprimirCorreo;
-import com.banco.clases.clasesImpresion.imprimirPdf;
-import com.banco.interfaces.Imprimir;
+import static com.banco.menus.menuFormaImpresion.FormaImp;
+
+import com.banco.clases.clasesValidar.Validar;
+import com.banco.menus.menuSeleccionBanco;
+import java.util.ArrayList;
 import java.util.Scanner;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
 public class Transacciones {
-  Imprimir generarPDF = new imprimirPdf();
-  Imprimir generarCorreo = new imprimirCorreo();
-  Imprimir generarImpresionConsola = new imprimirConsola();
   Scanner sc = new Scanner(System.in);
-  double saldo;
-  double total;
 
-  String nombreTransaccion;
+  @Getter @Setter private double saldo;
+
+  @Getter @Setter private double total;
+
+  @Getter @Setter private String nombreTransaccion;
+
+  public Transacciones(double saldo, double total, String nombreTransaccion) {
+    this.saldo = saldo;
+    this.total = total;
+    this.nombreTransaccion = nombreTransaccion;
+  }
 
   Banco bn = new Banco();
+  Validar validar = new Validar();
+  menuSeleccionBanco mb = new menuSeleccionBanco();
+  ArrayList<String> dataBanco = new ArrayList<>();
+  private String nombre;
+  private String direccion;
 
   public void retiro(Cuenta cuenta) {
-
-    bn.menu();
+    // bn.menu();
+    dataBanco = mb.menuBanco();
+    nombre = dataBanco.get(0);
+    direccion = dataBanco.get(1);
+    bn.setNombreBanco(nombre);
+    bn.setDireccion(direccion);
     Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
 
-    System.out.println("Digite el monto a retirar " + cuenta.getNombre());
-    saldo = sc.nextDouble();
+    System.out.println(
+        "Digite el monto a retirar " + cuenta.getNombre() + "(mayor o igual a $10):");
+    System.out.print("$");
+    saldo = validar.validarSaldo();
+    while (saldo > cuenta.getSaldo() || saldo == cuenta.getSaldo()) {
+      System.out.println("no se permite vaciar completamente la cuenta");
+      saldo = validar.validarSaldo();
+    }
     total = cuenta.saldo - saldo;
 
-    nombreTransaccion = "Retiro";
-    FormaImp(cuenta,banco);
+    setSaldo(saldo);
+    setTotal(total);
+    setNombreTransaccion("Retiro");
+    Transacciones transacciones = new Transacciones(getSaldo(), getTotal(), getNombreTransaccion());
+    FormaImp(cuenta, banco, transacciones);
   }
 
   public void deposito(Cuenta cuenta) {
-    // instanciación
-    bn.menu();
+    // bn.menu();
+    dataBanco = mb.menuBanco();
+    nombre = dataBanco.get(0);
+    direccion = dataBanco.get(1);
+    bn.setNombreBanco(nombre);
+    bn.setDireccion(direccion);
     Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
-    // Datos a ingresar
-    System.out.println("Digite el monto a depositar " + cuenta.getNombre());
-    saldo = sc.nextDouble();
-    // Calculo del Deposito
+    System.out.println(
+        "Digite el monto a depositar " + cuenta.getNombre() + "(mayor o igual a $10):");
+    System.out.print("$");
+    saldo = validar.validarSaldo();
     total = cuenta.saldo + saldo;
 
-    nombreTransaccion = "Deposito";
-    FormaImp(cuenta,banco);
+    setSaldo(saldo);
+    setTotal(total);
+    setNombreTransaccion("Deposito");
 
+    Transacciones transacciones = new Transacciones(getSaldo(), getTotal(), getNombreTransaccion());
+    FormaImp(cuenta, banco, transacciones);
   }
 
   public void transferencia(Cuenta cuentaTranfiere, Cuenta cuentaRecibe) {
-    bn.menu();
+    // bn.menu();
+    dataBanco = mb.menuBanco();
+    nombre = dataBanco.get(0);
+    direccion = dataBanco.get(1);
+    bn.setNombreBanco(nombre);
+    bn.setDireccion(direccion);
     Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
 
-    System.out.println("Digite el monto a a transferir");
-    saldo = sc.nextDouble();
+    System.out.println("Digite el monto a a transferir(mayor o igual a $10)");
+    System.out.print("$");
+    saldo = validar.validarSaldo();
     cuentaRecibe.saldo = cuentaRecibe.saldo + saldo;
     total = cuentaTranfiere.saldo - saldo;
 
-    nombreTransaccion = "Transferencia";
-    FormaImp(cuentaTranfiere,banco);
-
+    setSaldo(saldo);
+    setTotal(total);
+    setNombreTransaccion("Transferencia");
+    Transacciones transacciones = new Transacciones(getSaldo(), getTotal(), getNombreTransaccion());
+    FormaImp(cuentaTranfiere, banco, transacciones);
   }
-
-  public void FormaImp(Cuenta cuenta, Banco banco){
-    int seleccion = 0;
-    boolean bandera =false;
-
-    while (!bandera) {
-      System.out.println(
-              "Por favor seleccione el numero de la transaccion que desea realizar : \n"
-                      + "1. Solo Generar PDF \n"
-                      + "2. Enviar una copia al correo electronico \n"
-                      + "3. Solo mostrar en consola ");
-      seleccion = sc.nextInt();
-      switch (seleccion) {
-        case 1:
-        {
-          generarPDF.imprimir(cuenta, banco, saldo ,total, nombreTransaccion);
-          System.out.println("PDF Created");
-          bandera = true;
-          break;
-        }
-
-        case 2:
-        {
-          generarCorreo.imprimir(cuenta, banco, saldo ,total, nombreTransaccion);
-          System.out.println("Correo enviado");
-          bandera = true;
-          break;
-        }
-
-        case 3:
-        {
-          generarImpresionConsola.imprimir(cuenta, banco, saldo ,total, nombreTransaccion);
-          bandera = true;
-          break;
-        }
-
-        default:
-        {
-          System.out.println("Por favor digite un numero valido");
-          break;
-        }
-      }
-    }
-
-  }
-
-
 }

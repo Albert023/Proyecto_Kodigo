@@ -2,6 +2,7 @@ package com.banco.clases.clasesImpresion;
 
 import com.banco.clases.Banco;
 import com.banco.clases.Cuenta;
+import com.banco.clases.Transacciones;
 import com.banco.interfaces.Imprimir;
 import java.io.IOException;
 import java.util.Date;
@@ -14,10 +15,10 @@ import javax.mail.internet.MimeMultipart;
 
 public class imprimirCorreo implements Imprimir {
 
-  public void imprimir(Cuenta cuenta, Banco banco, double deposito, double total,String transaccion) {
+  public void imprimir(Cuenta cuenta, Banco banco, Transacciones transaccion) {
 
     Imprimir generarPDF = new imprimirPdf();
-    generarPDF.imprimir(cuenta, banco, deposito, total,transaccion);
+    generarPDF.imprimir(cuenta, banco, transaccion);
 
     Properties props = new Properties();
     props.put("mail.smtp.auth", "true");
@@ -28,7 +29,7 @@ public class imprimirCorreo implements Imprimir {
     Session sesion = Session.getDefaultInstance(props);
 
     String correoRemitente = "proyecto.kodigo.1@gmail.com";
-    String contrasenia = "bawnvagvvlbuhgpi";
+    String contrasenia = "jlqbwoutyqejyhzu";
     String destinatario = cuenta.getEmail();
     String asunto = "Recibo";
     String mensaje = "recibo";

@@ -1,0 +1,12 @@
+
+P
+java:S1118":Add a private constructor to hide the implicit public one.(¥Òó‰
+Q
+java:S1854"6Remove this useless assignment to local variable "sc".(ğÛ²¸øÿÿÿÿ
+B
+java:S1481"'Remove this unused "sc" local variable.(ğÛ²¸øÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÆÀûı
+M
+java:S6126"2Replace this String concatenation with Text block.(Òõÿÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÔÈµö
+N	java:S1061"9Replace this use of System.out or System.err by a logger.(ó™¯‘

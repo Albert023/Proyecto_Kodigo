@@ -1,0 +1,35 @@
+
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¸òòûÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(çé±êúÿÿÿÿ
+M
+java:S6126"2Replace this String concatenation with Text block.(çé±êúÿÿÿÿ
+N	java:S106+"9Replace this use of System.out or System.err by a logger.(šÇì¢
+W
+java:S18545"<Remove this useless assignment to local variable "pattern3".(öç¿íıÿÿÿÿ
+W
+java:S18544"<Remove this useless assignment to local variable "pattern2".(”²ôûÿÿÿÿ
+R
+java:S18543"<Remove this useless assignment to local variable "pattern1".(ã®÷
+C
+java:S14813"-Remove this unused "pattern1" local variable.(ã®÷
+W
+java:S63534"<Use concise character class syntax '\\d' instead of '[0-9]'.(”²ôûÿÿÿÿ
+H
+java:S14814"-Remove this unused "pattern2" local variable.(”²ôûÿÿÿÿ
+H
+java:S14815"-Remove this unused "pattern3" local variable.(öç¿íıÿÿÿÿ
+N	java:S1067"9Replace this use of System.out or System.err by a logger.(ÎşÑƒ
+N	java:S106:"9Replace this use of System.out or System.err by a logger.(’úñ
+M	java:S106="9Replace this use of System.out or System.err by a logger.(±Ğü"
+N	java:S106@"9Replace this use of System.out or System.err by a logger.(Š¨ı˜
+S	java:S106C"9Replace this use of System.out or System.err by a logger.(Šğ”©úÿÿÿÿ
+S	java:S106F"9Replace this use of System.out or System.err by a logger.(£–‚øúÿÿÿÿ
+S	java:S106I"9Replace this use of System.out or System.err by a logger.(ÅêÙùÿÿÿÿ
+N	java:S106L"9Replace this use of System.out or System.err by a logger.(×ê™‘
+M	java:S106Z"9Replace this use of System.out or System.err by a logger.(œ•W
+S	java:S106\"9Replace this use of System.out or System.err by a logger.(£ë¡êøÿÿÿÿ
+S
+java:S2440o"1Remove this instantiation of "MenuTransacciones".(ğ•öÕıÿÿÿÿ8ÙÏ¹Í±0
+Q
+java:S2209p"5Change this instance-reference to a static reference.(İû©s8ÛÏ¹Í±0
+U	java:S106q"9Replace this use of System.out or System.err by a logger.(­ŠÎö8ÜÏ¹Í±0
