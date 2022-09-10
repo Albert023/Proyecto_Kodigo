@@ -13,40 +13,42 @@ public class menuCrearPersona {
   funcionesPersonas fp = new funcionesPersonas();
   login ln = new login();
   Scanner sc = new Scanner(System.in);
-  String nombre;
-  String apellido;
-  String telefono;
-  String correo;
-  String dni;
-  String usuario;
-  String clave;
-  String confClave;
+  public String nombre;
+  public String apellido;
+  public String telefono;
+  public String correo;
+  public String dni;
+  public String usuario;
+  public String clave;
+  public String confClave;
 
   public void menu(){
-    System.out.println("Seleccione una de las opciones \n"
-            + "1. Crear usuario \n"
-            + "2. Iniciar Sesion \n");
+    System.out.println("""
+            Seleccione una de las opciones\s
+            1. Crear usuario\s
+            2. Iniciar Sesion\s
+            """);
     int scan = Validar.validarNumeric();
-    switch (scan){
-      case 1: {
-        crearpersona();
-          try {
-              Thread.sleep(4000);
-          } catch (InterruptedException e) {
-              Thread.currentThread().interrupt();
+      switch (scan) {
+          case 1 -> {
+              crearpersona();
+              try {
+                  Thread.sleep(4000);
+              } catch (InterruptedException e) {
+                  Thread.currentThread().interrupt();
+              }
+              ingresar();
+              break;
           }
-          ingresar();
-        break;
+          case 2 -> {
+              ingresar();
+              break;
+          }
+          default -> {
+              System.out.println("Seleccione una opción valida");
+              break;
+          }
       }
-      case 2: {
-        ingresar();
-        break;
-      }
-      default:{
-        System.out.println("Seleccione una opción valida");
-        break;
-      }
-    }
   }
 
   public void ingresar(){
@@ -69,9 +71,9 @@ public class menuCrearPersona {
       telefono = results.get(2);
       correo = results.get(3);
       dni = results.get(4);
-      for (int i= 0; i<results.size(); i++){
-        System.out.println(results.get(i)+""+"\n");
-      }
+        for (String result : results) {
+            System.out.println(result + "" + "\n");
+        }
     } else {
       System.out.println("Error al Ingresar");
       ingresar();
@@ -117,6 +119,7 @@ public class menuCrearPersona {
       System.out.println("Datos guardados");
     } else {
       System.out.println("Error al gurdar datos");
+      crearpersona();
     }
   }
 }

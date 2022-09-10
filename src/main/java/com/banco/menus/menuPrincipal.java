@@ -19,14 +19,15 @@ public class menuPrincipal {
     }
     public void seleccionCuenta(){
         Cliente cliente = new Cliente(mp.nombre,mp.apellido,mp.telefono,mp.correo,mp.dni,mp.usuario,mp.clave);
-        System.out.println("Seleccione una de las Opciones \n" +
-                "1. Crear Cuenta \n" +
-                "2. Realizar una Transacción \n" +
-                "3. Salir");
+        System.out.println("""
+                Seleccione una de las Opciones\s
+                1. Crear Cuenta\s
+                2. Realizar una Transacción\s
+                3. Salir""");
         int select = Validar.validarNumeric();
         switch (select){
             case 1:{
-                if (ma.tipo1 != "empty"){
+                if (!ma.tipo1.equals("empty")){
                     System.out.println("ya a creado una cuenta, seleccione una de las siguientes opciones");
                     seleccionCuenta();
                 }
@@ -34,13 +35,12 @@ public class menuPrincipal {
                 seleccionCuenta();
             }
             case 2:{
-                if(ma.tipo1 == "empty"){
+                if(ma.tipo1.equals("empty")){
                     ma.tipo1 = cn.corrienteCuenta();
                 }
                 Cuenta cuenta1 = new Cuenta(saldo, 34555123, ma.tipo1, cn.getEstado(),cliente);
                 Cuenta cuenta2 = new Cuenta(saldo, 45555123,tipo2, cn.getEstado(),cliente);
-                MenuTransacciones mt = new MenuTransacciones();
-                mt.menuTransaccion(cuenta1, cuenta2);
+                MenuTransacciones.menuTransaccion(cuenta1, cuenta2);
             }
             case 3:{
                 System.exit(1);

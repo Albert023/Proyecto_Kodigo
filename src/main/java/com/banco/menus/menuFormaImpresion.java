@@ -17,6 +17,7 @@ public class menuFormaImpresion {
     Imprimir generarPDF = new imprimirPdf();
     Imprimir generarCorreo = new imprimirCorreo();
     Imprimir generarImpresionConsola = new imprimirConsola();
+    menuPrincipal mp = new menuPrincipal();
 
     Scanner sc = new Scanner(System.in);
 
@@ -38,10 +39,10 @@ public class menuFormaImpresion {
           {
             generarPDF.imprimir(cuenta, banco, transacciones);
             System.out.println("PDF Created");
+            mp.seleccionCuenta();
             bandera = true;
             break;
           }
-
         case 2:
           {
             generarCorreo.imprimir(cuenta, banco, transacciones);
@@ -49,7 +50,6 @@ public class menuFormaImpresion {
             bandera = true;
             break;
           }
-
         case 3:
           {
             generarImpresionConsola.imprimir(cuenta, banco, transacciones);
@@ -65,4 +65,9 @@ public class menuFormaImpresion {
       }
     }
   }
+
+  void selectOpt(){
+     System.out.println("");
+  }
+
 }

@@ -5,15 +5,12 @@ import static com.banco.menus.menuFormaImpresion.FormaImp;
 import com.banco.clases.clasesValidar.Validar;
 import com.banco.menus.menuSeleccionBanco;
 import java.util.ArrayList;
-import java.util.Scanner;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
 public class Transacciones {
-  Scanner sc = new Scanner(System.in);
-
   @Getter @Setter private double saldo;
 
   @Getter @Setter private double total;

@@ -3,12 +3,10 @@ package com.banco.menus;
 import com.banco.clases.Cuenta;
 import com.banco.clases.Transacciones;
 import com.banco.clases.clasesValidar.Validar;
-
 import java.util.Scanner;
 
 public class MenuTransacciones {
   public static void menuTransaccion(Cuenta cuenta1, Cuenta cuenta2) {
-    Scanner sc = new Scanner(System.in);
     int seleccion = 0;
     boolean bandera = false;
     Transacciones transaccion = new Transacciones();
