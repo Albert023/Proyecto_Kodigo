@@ -28,7 +28,7 @@ public class menuCrearPersona {
               + "2. Iniciar Sesion \n");
     int scan = Validar.validarNumeric();
       switch (scan) {
-          case 1 -> {
+          case 1: {
               crearpersona();
               try {
                   Thread.sleep(4000);
@@ -38,11 +38,11 @@ public class menuCrearPersona {
               ingresar();
               break;
           }
-          case 2 -> {
+          case 2 : {
               ingresar();
               break;
           }
-          default -> {
+          default : {
               System.out.println("Seleccione una opción valida");
               break;
           }
