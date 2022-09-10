@@ -21,7 +21,6 @@ public class login {
     public boolean Login(Cliente ln) {
         boolean retorno = false;
         try {
-
             String sql = "SELECT * FROM clientes WHERE usuariocliente = ? AND clavecliente = ?";
             PreparedStatement cmd = cn.prepareStatement(sql);
 
@@ -34,8 +33,8 @@ public class login {
             } else {
                 System.out.println("Usuario o contraseña incorrectos, Credenciales incorrectas");
             }
-            cmd.close();
-            cn.close();
+            //cmd.close();
+            //cn.close();
         } catch (SQLException e) {
             System.err.println("Error en al Ingresar " + e);
             retorno = false;

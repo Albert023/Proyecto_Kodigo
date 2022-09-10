@@ -1,13 +1,11 @@
 package com.banco.menus;
 
 import com.banco.clases.Cliente;
-import com.banco.clases.Cuenta;
 import com.banco.clases.clasesValidar.Validar;
 import com.banco.modelo.funcionesPersonas;
 import com.banco.modelo.login;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class menuCrearPersona {
   Validar validar = new Validar();
@@ -25,7 +23,6 @@ public class menuCrearPersona {
   String confClave;
 
   public void menu(){
-
     System.out.println("Seleccione una de las opciones \n"
             + "1. Crear usuario \n"
             + "2. Iniciar Sesion \n");
@@ -33,6 +30,12 @@ public class menuCrearPersona {
     switch (scan){
       case 1: {
         crearpersona();
+          try {
+              Thread.sleep(4000);
+          } catch (InterruptedException e) {
+              Thread.currentThread().interrupt();
+          }
+          ingresar();
         break;
       }
       case 2: {
@@ -69,13 +72,11 @@ public class menuCrearPersona {
       for (int i= 0; i<results.size(); i++){
         System.out.println(results.get(i)+""+"\n");
       }
-
     } else {
       System.out.println("Error al Ingresar");
+      ingresar();
     }
-
   }
-
   public void crearpersona() {
    Scanner sc = new Scanner(System.in);
 

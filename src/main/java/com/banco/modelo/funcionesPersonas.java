@@ -35,8 +35,8 @@ public class funcionesPersonas extends conexion {
       if (!cmd.execute()) {
         resp = true;
       }
-      cmd.close();
-      cn.close();
+      //cmd.close();
+      //cn.close();
     } catch (Exception e) {
 
       System.out.println("Error de inserción" + e.toString());

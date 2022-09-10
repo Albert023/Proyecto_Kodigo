@@ -34,6 +34,9 @@ public class menuPrincipal {
                 seleccionCuenta();
             }
             case 2:{
+                if(ma.tipo1 == "empty"){
+                    ma.tipo1 = cn.corrienteCuenta();
+                }
                 Cuenta cuenta1 = new Cuenta(saldo, 34555123, ma.tipo1, cn.getEstado(),cliente);
                 Cuenta cuenta2 = new Cuenta(saldo, 45555123,tipo2, cn.getEstado(),cliente);
                 MenuTransacciones mt = new MenuTransacciones();
