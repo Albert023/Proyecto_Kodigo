@@ -23,11 +23,9 @@ public class menuCrearPersona {
   public String confClave;
 
   public void menu(){
-    System.out.println("""
-            Seleccione una de las opciones\s
-            1. Crear usuario\s
-            2. Iniciar Sesion\s
-            """);
+      System.out.println("Seleccione una de las opciones \n"
+              + "1. Crear usuario \n"
+              + "2. Iniciar Sesion \n");
     int scan = Validar.validarNumeric();
       switch (scan) {
           case 1 -> {

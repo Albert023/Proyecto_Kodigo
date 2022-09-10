@@ -19,11 +19,10 @@ public class menuPrincipal {
     }
     public void seleccionCuenta(){
         Cliente cliente = new Cliente(mp.nombre,mp.apellido,mp.telefono,mp.correo,mp.dni,mp.usuario,mp.clave);
-        System.out.println("""
-                Seleccione una de las Opciones\s
-                1. Crear Cuenta\s
-                2. Realizar una Transacción\s
-                3. Salir""");
+        System.out.println("Seleccione una de las Opciones \n" +
+                "1. Crear Cuenta \n" +
+                "2. Realizar una Transacción \n" +
+                "3. Salir");
         int select = Validar.validarNumeric();
         switch (select){
             case 1:{

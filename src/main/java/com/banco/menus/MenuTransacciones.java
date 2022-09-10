@@ -3,13 +3,16 @@ package com.banco.menus;
 import com.banco.clases.Cuenta;
 import com.banco.clases.Transacciones;
 import com.banco.clases.clasesValidar.Validar;
+import com.banco.modelo.funcionesTransacciones;
+
 import java.util.Scanner;
 
 public class MenuTransacciones {
   public static void menuTransaccion(Cuenta cuenta1, Cuenta cuenta2) {
     int seleccion = 0;
     boolean bandera = false;
-    Transacciones transaccion = new Transacciones();
+    //Transacciones transaccion = new Transacciones();
+    funcionesTransacciones ft = new funcionesTransacciones();
 
     while (!bandera) {
       System.out.println(
@@ -22,21 +25,24 @@ public class MenuTransacciones {
       switch (seleccion) {
         case 1:
           {
-            transaccion.deposito(cuenta1);
+            //transaccion.deposito(cuenta1);
+            ft.deposito(cuenta1);
             bandera = true;
             break;
           }
 
         case 2:
           {
-            transaccion.retiro(cuenta1);
+            ft.retiro(cuenta1);
+            //transaccion.retiro(cuenta1);
             bandera = true;
             break;
           }
 
         case 3:
           {
-            transaccion.transferencia(cuenta1, cuenta2);
+            ft.transferencia(cuenta1,cuenta2);
+            //transaccion.transferencia(cuenta1, cuenta2);
             bandera = true;
             break;
           }
