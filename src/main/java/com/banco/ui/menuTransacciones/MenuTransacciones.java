@@ -20,7 +20,7 @@ public class MenuTransacciones extends AbstractMenuEnum<MenuTransaccionesEnum> {
           Transacciones transaccion = null;
           Cuenta cuenta1 = null;
           {
-            transaccion.deposito(cuenta1);
+//            transaccion.deposito(cuenta1);
             bandera = true;
             break;
           }
