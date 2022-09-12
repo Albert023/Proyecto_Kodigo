@@ -32,14 +32,8 @@ public class funcionesTransacciones {
         System.out.print("$");
         tr.setSaldo(validar.validarSaldo());
         while (tr.getSaldo() > cuenta.getSaldo() || tr.getSaldo() == cuenta.getSaldo()) {
-            if (tr.getSaldo() == 0){
-                System.out.println("Su Cuenta esta vacía");
-                //momentaneo, no solucion final
-                System.exit(1);
-            }
             System.out.println("no se permite vaciar completamente la cuenta");
             tr.setSaldo(validar.validarSaldo());
-
         }
         tr.setTotal(cuenta.getSaldo() - tr.getSaldo());
         tr.setNombreTransaccion("Retiro");
@@ -57,6 +51,10 @@ public class funcionesTransacciones {
                 "Digite el monto a depositar " + cuenta.getNombre() + "(mayor o igual a $10):");
         System.out.print("$");
         tr.setSaldo(validar.validarSaldo());
+        while (tr.getSaldo() > 10 || tr.getSaldo() < 500000) {
+            System.out.println("no se permite ingresar la cantidad dada");
+            tr.setSaldo(validar.validarSaldo());
+        }
         tr.setTotal(cuenta.getSaldo() + tr.getSaldo());
         tr.setNombreTransaccion("Deposito");
         Transacciones transacciones = new Transacciones(tr.getSaldo(), tr.getTotal(), tr.getNombreTransaccion());
@@ -73,6 +71,10 @@ public class funcionesTransacciones {
         System.out.println("Digite el monto a a transferir(mayor o igual a $10)");
         System.out.print("$");
         tr.setSaldo(validar.validarSaldo());
+        while (tr.getSaldo() > cuentaTranfiere.getSaldo() || tr.getSaldo() == cuentaTranfiere.getSaldo()) {
+            System.out.println("no se permite vaciar completamente la cuenta");
+            tr.setSaldo(validar.validarSaldo());
+        }
         cuentaRecibe.setSaldo(cuentaRecibe.getSaldo() + cuentaTranfiere.getSaldo());
         tr.setTotal(cuentaTranfiere.getSaldo() - cuentaRecibe.getSaldo());
         tr.setNombreTransaccion("Transferencia");
