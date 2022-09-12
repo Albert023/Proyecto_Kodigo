@@ -8,10 +8,10 @@ import lombok.Setter;
 
 @NoArgsConstructor
 public class Cuenta extends Cliente {
-  @Setter @Getter double saldo;
-  @Setter @Getter private int numCuenta;
-  @Setter @Getter private String tipo;
-  @Setter @Getter private String estado;
+  @Setter @Getter private static double saldo;
+  @Setter @Getter private static int numCuenta;
+  @Setter @Getter private static String tipo;
+  @Setter @Getter private static String estado;
 
   public void ActivarCuenta() {setEstado(String.valueOf(estadoCuenta.ACTIVA));}
   public void desactivarCuenta() {setEstado(String.valueOf(estadoCuenta.INACTIVA));}

@@ -6,13 +6,12 @@ import lombok.Setter;
 
 @NoArgsConstructor
 public abstract class Persona {
-  @Getter @Setter private int id;
-  @Getter @Setter private String nombre;
-  @Getter @Setter private String apellido;
-  @Getter @Setter private String email;
-  @Getter @Setter private String telefono;
-  @Getter @Setter private String usuario;
-  @Getter @Setter private String dni;
-  @Getter @Setter private String clave;
-
+  @Getter @Setter static private int id;
+  @Getter @Setter static private String nombre;
+  @Getter @Setter static private String apellido;
+  @Getter @Setter static private String email;
+  @Getter @Setter static private String telefono;
+  @Getter @Setter static private String usuario;
+  @Getter @Setter static private String dni;
+  @Getter @Setter static private String clave;
 }

@@ -63,5 +63,6 @@ public class imprimirCorreo implements Imprimir {
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
+    cuenta.setSaldo(transaccion.getTotal());
   }
 }

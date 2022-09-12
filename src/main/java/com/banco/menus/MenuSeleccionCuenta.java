@@ -11,20 +11,20 @@ import java.util.Scanner;
 public class MenuSeleccionCuenta {
 
     public static Logger menuSeleccionCuenta = Logger.getLogger(MenuSeleccionCuenta.class);
-    Scanner sc = new Scanner(System.in);
-    Cuenta cn = new Cuenta();
-    MenuSelectTipoCuenta tc = new MenuSelectTipoCuenta();
-    String tipo2;
 
     public void seleccionCuenta(Cliente cliente){
+        Scanner sc = new Scanner(System.in);
+        Cuenta cn = new Cuenta();
+        MenuSelectTipoCuenta tc = new MenuSelectTipoCuenta();
         MenuSaldoApertura ma = new MenuSaldoApertura();
+        String tipo2;
         Boolean valid = false;
         int select = 0;
         tipo2 = cn.corrienteCuenta();
 
         //while (!valid) {
         System.out.println(tc.tipo1);
-        System.out.println(ma.saldo);
+        System.out.println(ma.saldo+" || "+cn.getSaldo()+" ");
 
         System.out.println("Seleccione una de las Opciones \n" +
                 "1. Realizar una Transacción \n" +
@@ -41,15 +41,14 @@ public class MenuSeleccionCuenta {
         switch (select) {
             case 1: {
                 if (tc.tipo1 == "") {
-                    ma.saldo = 2000;
                     cn.ActivarCuenta();
                     tc.tipo1 = cn.corrienteCuenta();
                 }
-                if (ma.saldo==0){
-                    ma.saldo = 2000;
+                if (cn.getSaldo()==0){
+                    cn.setSaldo(2000);
                 }
-                Cuenta cuenta1 = new Cuenta(ma.saldo, 34555123, tc.tipo1, cn.getEstado(), cliente);
-                Cuenta cuenta2 = new Cuenta(ma.saldo, 45555123, tipo2, cn.getEstado(), cliente);
+                Cuenta cuenta1 = new Cuenta(cn.getSaldo(), 34555123, tc.tipo1, cn.getEstado(), cliente);
+                Cuenta cuenta2 = new Cuenta(cn.getSaldo(), 45555123, tipo2, cn.getEstado(), cliente);
                 MenuTransacciones.menuTransaccion(cuenta1, cuenta2);
                 break;
             }

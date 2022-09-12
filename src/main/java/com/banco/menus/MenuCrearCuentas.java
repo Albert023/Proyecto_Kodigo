@@ -1,6 +1,7 @@
 package com.banco.menus;
 
 import com.banco.clases.Cliente;
+import com.banco.clases.Cuenta;
 
 import java.util.Scanner;
 
@@ -11,14 +12,16 @@ public class MenuCrearCuentas {
    MenuSaldoApertura ma = new MenuSaldoApertura();
    MenuSelectTipoCuenta tc = new MenuSelectTipoCuenta();
    MenuSeleccionCuenta mc = new MenuSeleccionCuenta();
-   MenuCrearPersona mp = new MenuCrearPersona();
-   Cliente cliente = new Cliente(mp.nombre, mp.apellido, mp.telefono, mp.correo, mp.dni, mp.usuario, mp.clave);
+   Cuenta cu = new Cuenta();
+   Cliente cn = new Cliente();
+   Cliente cliente = new Cliente(cn.getNombre(), cn.getApellido(),cn.getTelefono(), cn.getEmail(), cn.getDni(),cn.getUsuario(),cn.getClave());
 
    System.out.println("¿Desea Crear una Cuenta? \n" +
            "Si/No \n");
       String resp = sc.next();
      if(resp.equals("Si") || resp.equals("si") || resp.equals("SI")){
          ma.saldo = ma.saldoApertura();
+         cu.setSaldo(ma.saldo);
          tc.selectTipoCuenta();
          mc.seleccionCuenta(cliente);
       } else if (resp.equals("No") || resp.equals("no") || resp.equals("NO")) {

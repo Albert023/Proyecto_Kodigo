@@ -35,11 +35,11 @@ public class MenuIngresar {
             ArrayList<String> results;
             pr.setUsuario(mp.usuario);
             results = fp.consultarClientes(pr);
-            mp.nombre = results.get(0);
-            mp.apellido = results.get(1);
-            mp.telefono = results.get(2);
-            mp.correo = results.get(3);
-            mp.dni = results.get(4);
+            pr.setNombre(results.get(0));
+            pr.setApellido(results.get(1));
+            pr.setTelefono(results.get(2));
+            pr.setEmail(results.get(3));
+            pr.setDni(results.get(4));
 
             for (String result : results) {
                 System.out.println(result + "" + "\n");

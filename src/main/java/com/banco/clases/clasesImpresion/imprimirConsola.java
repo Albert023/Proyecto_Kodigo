@@ -32,5 +32,6 @@ public class imprimirConsola implements Imprimir {
             + transaccion.getTotal()
             + "\n"
             + "==============================");
+    cuenta.setSaldo(transaccion.getTotal());
   }
 }

@@ -4,17 +4,18 @@ import com.banco.clases.Banco;
 import com.banco.clases.Cuenta;
 import com.banco.clases.Transacciones;
 import com.banco.clases.clasesValidar.Validar;
-import com.banco.menus.menuSeleccionBanco;
+import com.banco.menus.MenuSeleccionBanco;
 
 import java.util.ArrayList;
 
-import static com.banco.menus.menuFormaImpresion.FormaImp;
+import static com.banco.menus.MenuFormaImpresion.FormaImp;
 
 public class funcionesTransacciones {
     Transacciones tr = new Transacciones();
+    Cuenta cu = new Cuenta();
     Banco bn = new Banco();
     Validar validar = new Validar();
-    menuSeleccionBanco mb = new menuSeleccionBanco();
+    MenuSeleccionBanco mb = new MenuSeleccionBanco();
     ArrayList<String> dataBanco = new ArrayList<>();
     private String nombre;
     private String direccion;
@@ -74,7 +75,6 @@ public class funcionesTransacciones {
         tr.setSaldo(validar.validarSaldo());
         cuentaRecibe.setSaldo(cuentaRecibe.getSaldo() + cuentaTranfiere.getSaldo());
         tr.setTotal(cuentaTranfiere.getSaldo() - cuentaRecibe.getSaldo());
-
         tr.setNombreTransaccion("Transferencia");
         Transacciones transacciones = new Transacciones(tr.getSaldo(), tr.getTotal(), tr.getNombreTransaccion());
         FormaImp(cuentaTranfiere, banco, transacciones);

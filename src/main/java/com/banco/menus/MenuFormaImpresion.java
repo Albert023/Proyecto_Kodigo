@@ -10,7 +10,7 @@ import com.banco.clases.clasesImpresion.imprimirPdf;
 import com.banco.interfaces.Imprimir;
 import java.util.Scanner;
 
-public class menuFormaImpresion {
+public class MenuFormaImpresion {
 
   public static void FormaImp(Cuenta cuenta, Banco banco, Transacciones transacciones) {
     int seleccion = 0;

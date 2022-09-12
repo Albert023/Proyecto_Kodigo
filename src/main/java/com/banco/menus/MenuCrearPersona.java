@@ -3,11 +3,9 @@ package com.banco.menus;
 import com.banco.clases.Cliente;
 import com.banco.clases.clasesValidar.Validar;
 import com.banco.modelo.funcionesPersonas;
-import com.banco.modelo.login;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuCrearPersona {
@@ -31,7 +29,7 @@ public class MenuCrearPersona {
     int scan = 0;
     MenuIngresar mi = new MenuIngresar();
 
-    while(!valid) {
+    //while(!valid) {
         System.out.println("Seleccione una de las opciones \n"
                 + "1. Crear usuario \n"
                 + "2. Iniciar Sesion \n");
@@ -61,10 +59,11 @@ public class MenuCrearPersona {
             }
             default: {
                 System.out.println("Seleccione una opción valida\n");
+                menu();
                 break;
             }
         }
-    }
+    //}
   }
 
 
@@ -107,7 +106,6 @@ public class MenuCrearPersona {
     pr.setClave(clave);
     if (fp.guardarCliente(pr)) {
       System.out.println("Datos guardados");
-      //Cliente cliente = new Cliente(nombre, apellido, telefono, correo, dni, usuario, clave);
     } else {
       System.out.println("Error al gurdar datos");
       crearpersona();

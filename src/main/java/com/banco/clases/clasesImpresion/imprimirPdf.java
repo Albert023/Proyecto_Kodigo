@@ -40,9 +40,9 @@ public class imprimirPdf implements Imprimir {
   }
 
   public void imprimir(Cuenta cuenta, Banco banco, Transacciones transaccion) {
-    //String dest = "Recibo " + cuenta.getNombre() + ".pdf";
+    String dest = "Recibo " + cuenta.getNombre() + ".pdf";
     //reemplazar directorio luego de Users por el propio o directamente buscar el directorio del Desktop propio
-    String dest = "C:/Users/adalb/Desktop/Recibo " + cuenta.getNombre() + ".pdf";
+    //String dest = "C:/Users/adalb/Desktop/Recibo " + cuenta.getNombre() + ".pdf";
     PdfWriter writer;
     try {
       writer = new PdfWriter(dest);
@@ -106,6 +106,7 @@ public class imprimirPdf implements Imprimir {
     document.add(paragraph9);
     document.add(paragraph10);
     // Closing the document
+    cuenta.setSaldo(transaccion.getTotal());
     document.close();
   }
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class menuSeleccionBanco {
+public class MenuSeleccionBanco {
 
   private String nombre;
 
