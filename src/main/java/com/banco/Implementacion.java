@@ -1,13 +1,11 @@
 package com.banco;
 
-import com.banco.menus.menuCrearPersona;
-import com.banco.menus.menuPrincipal;
+import com.banco.menus.MenuPrincipal;
 
 public class Implementacion {
 
   public static void main(String[] args) {
-
-    menuPrincipal pm = new menuPrincipal();
+    MenuPrincipal pm = new MenuPrincipal();
     pm.exec();
   }
 }

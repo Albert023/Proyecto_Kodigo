@@ -1,6 +1,7 @@
 package com.banco.menus;
 
 import com.banco.clases.Banco;
+import com.banco.clases.Cliente;
 import com.banco.clases.Cuenta;
 import com.banco.clases.Transacciones;
 import com.banco.clases.clasesImpresion.imprimirConsola;
@@ -17,7 +18,8 @@ public class menuFormaImpresion {
     Imprimir generarPDF = new imprimirPdf();
     Imprimir generarCorreo = new imprimirCorreo();
     Imprimir generarImpresionConsola = new imprimirConsola();
-    menuPrincipal mp = new menuPrincipal();
+    MenuSeleccionCuenta mp = new MenuSeleccionCuenta();
+    Cliente cliente = new Cliente();
 
     Scanner sc = new Scanner(System.in);
 
@@ -39,7 +41,7 @@ public class menuFormaImpresion {
           {
             generarPDF.imprimir(cuenta, banco, transacciones);
             System.out.println("PDF Created");
-            mp.seleccionCuenta();
+            mp.seleccionCuenta(cliente);
             bandera = true;
             break;
           }
@@ -47,12 +49,14 @@ public class menuFormaImpresion {
           {
             generarCorreo.imprimir(cuenta, banco, transacciones);
             System.out.println("Correo enviado");
+            mp.seleccionCuenta(cliente);
             bandera = true;
             break;
           }
         case 3:
           {
             generarImpresionConsola.imprimir(cuenta, banco, transacciones);
+            mp.seleccionCuenta(cliente);
             bandera = true;
             break;
           }

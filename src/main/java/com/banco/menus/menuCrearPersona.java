@@ -4,79 +4,71 @@ import com.banco.clases.Cliente;
 import com.banco.clases.clasesValidar.Validar;
 import com.banco.modelo.funcionesPersonas;
 import com.banco.modelo.login;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class menuCrearPersona {
+public class MenuCrearPersona {
+  public static Logger menuCrearPersonas = Logger.getLogger(MenuCrearPersona.class);
   Validar validar = new Validar();
   Cliente pr = new Cliente();
   funcionesPersonas fp = new funcionesPersonas();
-  login ln = new login();
   Scanner sc = new Scanner(System.in);
-  public String nombre;
-  public String apellido;
-  public String telefono;
-  public String correo;
-  public String dni;
-  public String usuario;
-  public String clave;
-  public String confClave;
+
+  static String nombre;
+  static String apellido;
+  static String telefono;
+  static String correo;
+  static String dni;
+  static String usuario;
+  static String clave;
+  static String confClave;
 
   public void menu(){
-      System.out.println("Seleccione una de las opciones \n"
-              + "1. Crear usuario \n"
-              + "2. Iniciar Sesion \n");
-    int scan = Validar.validarNumeric();
-      switch (scan) {
-          case 1: {
-              crearpersona();
-              try {
-                  Thread.sleep(4000);
-              } catch (InterruptedException e) {
-                  Thread.currentThread().interrupt();
-              }
-              ingresar();
-              break;
-          }
-          case 2 : {
-              ingresar();
-              break;
-          }
-          default : {
-              System.out.println("Seleccione una opción valida");
-              break;
-          }
-      }
-  }
+    Boolean valid = false;
+    int scan = 0;
+    MenuIngresar mi = new MenuIngresar();
 
-  public void ingresar(){
-    System.out.println("Ingrese su usuario");
-    usuario = validar.validarNombre();
-    System.out.println("Ingrese su clave");
-    clave = sc.next();
+    while(!valid) {
+        System.out.println("Seleccione una de las opciones \n"
+                + "1. Crear usuario \n"
+                + "2. Iniciar Sesion \n");
+        String scanString = sc.nextLine();
+        valid = Validar.validarNumeric(scanString);
 
-    pr.setUsuario(usuario);
-    pr.setClave(clave);
+        if (valid == false) {
+            menuCrearPersonas.log(Level.WARN, "Se ingreso un caracter no numerico ");
+        } else {
+            scan = Integer.parseInt(scanString);
 
-    if (ln.Login(pr)) {
-      System.out.println("Ingreso");
-
-      ArrayList<String> results;
-      pr.setUsuario(usuario);
-      results = fp.consultarClientes(pr);
-      nombre = results.get(0);
-      apellido = results.get(1);
-      telefono = results.get(2);
-      correo = results.get(3);
-      dni = results.get(4);
-        for (String result : results) {
-            System.out.println(result + "" + "\n");
         }
-    } else {
-      System.out.println("Error al Ingresar");
-      ingresar();
+        switch (scan) {
+            case 1: {
+                crearpersona();
+                try {
+                    Thread.sleep(4000);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+                mi.ingresar();
+                break;
+            }
+            case 2: {
+                mi.ingresar();
+                break;
+            }
+            default: {
+                System.out.println("Seleccione una opción valida\n");
+                break;
+            }
+        }
     }
   }
+
+
+
   public void crearpersona() {
    Scanner sc = new Scanner(System.in);
 
@@ -115,6 +107,7 @@ public class menuCrearPersona {
     pr.setClave(clave);
     if (fp.guardarCliente(pr)) {
       System.out.println("Datos guardados");
+      //Cliente cliente = new Cliente(nombre, apellido, telefono, correo, dni, usuario, clave);
     } else {
       System.out.println("Error al gurdar datos");
       crearpersona();

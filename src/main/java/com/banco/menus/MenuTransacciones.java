@@ -1,8 +1,11 @@
 package com.banco.menus;
 
 import com.banco.clases.Cuenta;
+import com.banco.clases.Transacciones;
 import com.banco.clases.clasesValidar.Validar;
 import com.banco.modelo.funcionesTransacciones;
+
+import java.util.Scanner;
 
 public class MenuTransacciones {
   public static void menuTransaccion(Cuenta cuenta1, Cuenta cuenta2) {
@@ -17,7 +20,7 @@ public class MenuTransacciones {
               + "2. Retiro \n"
               + "3. Transferencia a otra cuenta ");
       System.out.println("Digite su opcion: ");
-      seleccion = Validar.validarNumeric();
+      seleccion = Validar.validarNumericOut();
       switch (seleccion) {
         case 1:
           {
@@ -25,21 +28,18 @@ public class MenuTransacciones {
             bandera = true;
             break;
           }
-
         case 2:
           {
             ft.retiro(cuenta1);
             bandera = true;
             break;
           }
-
         case 3:
           {
             ft.transferencia(cuenta1,cuenta2);
             bandera = true;
             break;
           }
-
         default:
           {
             System.out.println("Por favor digite un numero valido");

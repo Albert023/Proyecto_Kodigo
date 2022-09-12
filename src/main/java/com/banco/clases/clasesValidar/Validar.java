@@ -1,21 +1,17 @@
 package com.banco.clases.clasesValidar;
 
+import org.apache.log4j.Level;
+
+
 import java.util.Scanner;
 import java.util.regex.Pattern;
+
+//import static com.banco.menus.MenuPrincipal.menuPrincipal;
+import static com.banco.menus.MenuCrearPersona.menuCrearPersonas;
 
 public class Validar {
   Scanner sc = new Scanner(System.in);
 
-  public static int validarNumeric() {
-    Scanner il = new Scanner(System.in);
-    int nums;
-    while (!il.hasNextInt()) {
-      System.out.println("no se permiten ingresar caracteres");
-      il.next();
-    }
-    nums = il.nextInt();
-    return nums;
-  }
   public String validarNombre() {
     String nombre;
     Pattern pattern = Pattern.compile("[a-zA-ZñÑáÁéÉíÍóÓúÚ\\s]*");
@@ -25,6 +21,27 @@ public class Validar {
     }
     nombre = sc.next();
     return nombre;
+  }
+
+  public  static boolean validarNumeric(String cadena) {
+     int num;
+     try {
+       num = Integer.parseInt(cadena);
+       return true;
+     }catch (Exception e){
+        System.out.println("no se permiten caracteres alfabeticos");
+        return false;
+     }
+  }
+  public static int validarNumericOut() {
+    Scanner il = new Scanner(System.in);
+    int nums;
+    while (!il.hasNextInt()) {
+      System.out.println("no se permiten ingresar caracteres");
+      il.next();
+    }
+    nums = il.nextInt();
+    return nums;
   }
 
   public String validarApellido() {

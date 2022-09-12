@@ -5,6 +5,7 @@ import com.banco.clases.Cuenta;
 import com.banco.clases.Transacciones;
 import com.banco.clases.clasesValidar.Validar;
 import com.banco.menus.menuSeleccionBanco;
+
 import java.util.ArrayList;
 
 import static com.banco.menus.menuFormaImpresion.FormaImp;
@@ -30,16 +31,20 @@ public class funcionesTransacciones {
         System.out.print("$");
         tr.setSaldo(validar.validarSaldo());
         while (tr.getSaldo() > cuenta.getSaldo() || tr.getSaldo() == cuenta.getSaldo()) {
+            if (tr.getSaldo() == 0){
+                System.out.println("Su Cuenta esta vacía");
+                //momentaneo, no solucion final
+                System.exit(1);
+            }
             System.out.println("no se permite vaciar completamente la cuenta");
             tr.setSaldo(validar.validarSaldo());
+
         }
         tr.setTotal(cuenta.getSaldo() - tr.getSaldo());
         tr.setNombreTransaccion("Retiro");
         Transacciones transacciones = new Transacciones(tr.getSaldo(), tr.getTotal(), tr.getNombreTransaccion());
         FormaImp(cuenta, banco, transacciones);
     }
-
-
     public void deposito(Cuenta cuenta) {
         dataBanco = mb.menuBanco();
         nombre = dataBanco.get(0);
@@ -56,7 +61,6 @@ public class funcionesTransacciones {
         Transacciones transacciones = new Transacciones(tr.getSaldo(), tr.getTotal(), tr.getNombreTransaccion());
         FormaImp(cuenta, banco, transacciones);
     }
-
     public void transferencia(Cuenta cuentaTranfiere, Cuenta cuentaRecibe) {
         dataBanco = mb.menuBanco();
         nombre = dataBanco.get(0);
@@ -75,5 +79,4 @@ public class funcionesTransacciones {
         Transacciones transacciones = new Transacciones(tr.getSaldo(), tr.getTotal(), tr.getNombreTransaccion());
         FormaImp(cuentaTranfiere, banco, transacciones);
     }
-
 }
