@@ -8,9 +8,13 @@ import com.banco.clases.clasesImpresion.imprimirConsola;
 import com.banco.clases.clasesImpresion.imprimirCorreo;
 import com.banco.clases.clasesImpresion.imprimirPdf;
 import com.banco.interfaces.Imprimir;
+import org.apache.log4j.Logger;
+
 import java.util.Scanner;
 
 public class MenuFormaImpresion {
+
+  public static Logger MenuFormaImpresion = Logger.getLogger(MenuFormaImpresion.class);
 
   public static void FormaImp(Cuenta cuenta, Banco banco, Transacciones transacciones) {
     int seleccion = 0;

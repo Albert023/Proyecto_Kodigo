@@ -1,11 +1,14 @@
 package com.banco.menus;
 
 import com.banco.clases.Cuenta;
+import org.apache.log4j.Logger;
 
 import java.util.Scanner;
 
 
 public class MenuSaldoApertura {
+
+  public Logger MenuSaldoApertura = Logger.getLogger(MenuSaldoApertura.class);
 
   static boolean bandera = false;
   static int saldo = 0;

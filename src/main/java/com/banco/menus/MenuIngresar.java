@@ -11,10 +11,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuIngresar {
+    public Logger MenuIngresar = Logger.getLogger(MenuIngresar.class);
     funcionesPersonas fp = new funcionesPersonas();
     MenuCrearPersona mp = new MenuCrearPersona();
     Cliente pr = new Cliente();
-    public Logger MenuIngresar = Logger.getLogger(MenuIngresar.class);
+
     public  void  ingresar(){
         Validar validar = new Validar();
 

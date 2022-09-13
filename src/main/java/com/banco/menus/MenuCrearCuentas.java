@@ -2,10 +2,13 @@ package com.banco.menus;
 
 import com.banco.clases.Cliente;
 import com.banco.clases.Cuenta;
+import org.apache.log4j.Logger;
 
 import java.util.Scanner;
 
 public class MenuCrearCuentas {
+
+  public static Logger MenuCrearCuentas = Logger.getLogger(MenuCrearCuentas.class);
 
    public void crearCuenta(){
    Scanner sc = new Scanner(System.in);

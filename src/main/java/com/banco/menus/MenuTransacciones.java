@@ -4,10 +4,14 @@ import com.banco.clases.Cuenta;
 import com.banco.clases.Transacciones;
 import com.banco.clases.clasesValidar.Validar;
 import com.banco.modelo.funcionesTransacciones;
+import org.apache.log4j.Logger;
 
 import java.util.Scanner;
 
 public class MenuTransacciones {
+
+  public Logger MenuTransacciones = Logger.getLogger(MenuTransacciones.class);
+
   public static void menuTransaccion(Cuenta cuenta1, Cuenta cuenta2) {
     int seleccion = 0;
     boolean bandera = false;

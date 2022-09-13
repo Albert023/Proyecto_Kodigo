@@ -1,16 +1,17 @@
 package com.banco.menus;
 
 
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class MenuSeleccionBanco {
 
+  public Logger MenuSeleccionBanco = Logger.getLogger(MenuSeleccionBanco.class);
   private String nombre;
-
   private String direccion;
-
   private int selection;
   ArrayList<String> BancoE = new ArrayList<>();
 

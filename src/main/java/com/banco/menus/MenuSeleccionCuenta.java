@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class MenuSeleccionCuenta {
 
-    public static Logger menuSeleccionCuenta = Logger.getLogger(MenuSeleccionCuenta.class);
+    public static Logger MenuSeleccionCuenta = Logger.getLogger(MenuSeleccionCuenta.class);
 
     public void seleccionCuenta(Cliente cliente){
         Scanner sc = new Scanner(System.in);
@@ -33,7 +33,7 @@ public class MenuSeleccionCuenta {
 
         valid = Validar.validarNumeric(selectString);
         if (valid == false) {
-            menuSeleccionCuenta.log(Level.WARN, "Se ingreso un caracter no numerico ");
+            MenuSeleccionCuenta.log(Level.WARN, "Se ingreso un caracter no numerico ");
             seleccionCuenta(cliente);
         } else {
             select = Integer.parseInt(selectString);
