@@ -1,6 +1,7 @@
 package com.banco.menus;
 
 import com.banco.clases.Cuenta;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import java.util.Scanner;
@@ -22,11 +23,13 @@ public class MenuSaldoApertura {
       saldo = sc.nextInt();
     } else {
       System.out.println("no se permiten cadenas de texto");
+      MenuSaldoApertura.log(Level.WARN, "Se ingreso un valor no aceptado(caracteres) en este menú");
       saldoApertura();
     }
     if (saldo < 25) {
       System.out.println(
               "El valor ingresado es menor a $25,por favor ingrese un valor mayor o igual a $25");
+      MenuSaldoApertura.log(Level.WARN, "Se ha intentado ingresar un valor menor al requerido");
       saldoApertura();
     }
     return saldo;

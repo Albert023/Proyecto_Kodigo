@@ -45,7 +45,6 @@ public class MenuIngresar {
             for (String result : results) {
                 System.out.println(result + "" + "\n");
             }
-            //Cliente cliente = new Cliente(mp.nombre, mp.apellido, mp.telefono, mp.correo, mp.dni, mp.usuario, mp.clave);
         } else {
             System.out.println("Error al Ingresar\n");
             MenuIngresar.log(Level.WARN, "Se ingreso un usuario invalido");

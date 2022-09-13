@@ -4,13 +4,14 @@ import com.banco.clases.Cuenta;
 import com.banco.clases.Transacciones;
 import com.banco.clases.clasesValidar.Validar;
 import com.banco.modelo.funcionesTransacciones;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import java.util.Scanner;
 
 public class MenuTransacciones {
 
-  public Logger MenuTransacciones = Logger.getLogger(MenuTransacciones.class);
+  public static Logger MenuTransacciones = Logger.getLogger(MenuTransacciones.class);
 
   public static void menuTransaccion(Cuenta cuenta1, Cuenta cuenta2) {
     int seleccion = 0;
@@ -47,6 +48,7 @@ public class MenuTransacciones {
         default:
           {
             System.out.println("Por favor digite un numero valido");
+            MenuTransacciones.log(Level.WARN, "No existe la opción seleccionada");
             break;
           }
       }

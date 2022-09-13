@@ -1,6 +1,7 @@
 package com.banco.menus;
 
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -67,6 +68,7 @@ public class MenuSeleccionBanco {
       selection = na.nextInt();
     } else {
       System.out.println("no se permiten cadenas de texto");
+      MenuSeleccionBanco.log(Level.WARN, "No se permiten cadenas de texto en este menu");
       menuBanco();
     }
     if (selection <= 9 && selection != 0) {
@@ -79,6 +81,7 @@ public class MenuSeleccionBanco {
       System.out.println(
           "Seleccione una de las opciones dadas, de 1 a 9 \n"
               + "***********************************************************\n");
+      MenuSeleccionBanco.log(Level.WARN, "No existe la opción seleccionada");
       menuBanco();
     }
     return (BancoE);

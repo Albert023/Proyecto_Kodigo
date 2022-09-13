@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 import java.util.Scanner;
 
 public class MenuCrearPersona {
-  public static Logger menuCrearPersonas = Logger.getLogger(MenuCrearPersona.class);
+  public static Logger MenuCrearPersonas = Logger.getLogger(MenuCrearPersona.class);
   Validar validar = new Validar();
   Cliente pr = new Cliente();
   funcionesPersonas fp = new funcionesPersonas();
@@ -37,7 +37,7 @@ public class MenuCrearPersona {
         valid = Validar.validarNumeric(scanString);
 
         if (valid == false) {
-            menuCrearPersonas.log(Level.WARN, "Se ingreso un caracter no numerico ");
+          MenuCrearPersonas.log(Level.WARN, "Se ingreso un caracter no numerico ");
         } else {
             scan = Integer.parseInt(scanString);
 
@@ -59,6 +59,7 @@ public class MenuCrearPersona {
             }
             default: {
                 System.out.println("Seleccione una opción valida\n");
+                MenuCrearPersonas.log(Level.WARN, "Se ingreso un dato no valido en este menu");
                 menu();
                 break;
             }
@@ -108,6 +109,7 @@ public class MenuCrearPersona {
       System.out.println("Datos guardados");
     } else {
       System.out.println("Error al gurdar datos");
+      MenuCrearPersonas.log(Level.WARN, "Error en creación de usuarios");
       crearpersona();
     }
   }

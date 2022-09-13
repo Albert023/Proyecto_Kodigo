@@ -58,6 +58,7 @@ public class MenuSeleccionCuenta {
             }
             default: {
                 System.out.println("Por favor digite un numero valido\n");
+                MenuSeleccionCuenta.log(Level.WARN, "No existe la opción seleccionada");
                 break;
             }
             //}

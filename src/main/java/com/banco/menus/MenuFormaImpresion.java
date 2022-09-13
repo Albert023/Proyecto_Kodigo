@@ -8,6 +8,7 @@ import com.banco.clases.clasesImpresion.imprimirConsola;
 import com.banco.clases.clasesImpresion.imprimirCorreo;
 import com.banco.clases.clasesImpresion.imprimirPdf;
 import com.banco.interfaces.Imprimir;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import java.util.Scanner;
@@ -38,6 +39,7 @@ public class MenuFormaImpresion {
         seleccion = Integer.parseInt(sc.nextLine());
       } else {
         System.out.println("no se permiten cadenas de texto");
+        MenuFormaImpresion.log(Level.WARN, "No se permite ingresar caracteres en este menú");
         FormaImp(cuenta, banco, transacciones);
       }
       switch (seleccion) {
@@ -68,14 +70,10 @@ public class MenuFormaImpresion {
         default:
           {
             System.out.println("Por favor digite un numero valido");
+            MenuFormaImpresion.log(Level.WARN, "No existe la opción seleccionada");
             break;
           }
       }
     }
   }
-
-  void selectOpt(){
-     System.out.println("");
-  }
-
 }

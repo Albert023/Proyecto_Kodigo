@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import java.util.Scanner;
 
 public class MenuSelectTipoCuenta {
-    public static Logger menuSelectTipoCuenta = Logger.getLogger(MenuSelectTipoCuenta.class);
+    public static Logger MenuSelectTipoCuenta = Logger.getLogger(MenuSelectTipoCuenta.class);
     public static String tipo1;
     public void selectTipoCuenta(){
 
@@ -28,7 +28,7 @@ public class MenuSelectTipoCuenta {
             valid = Validar.validarNumeric(selString);
 
             if (valid == false) {
-                menuSelectTipoCuenta.log(Level.WARN, "Se ingreso un caracter no numerico ");
+                MenuSelectTipoCuenta.log(Level.WARN, "Se ingreso un caracter no numerico ");
             } else {
                 sel = Integer.parseInt(selString);
             }
@@ -43,6 +43,7 @@ public class MenuSelectTipoCuenta {
                 }
                 default: {
                     System.out.println("Por favor digite un numero valido");
+                    MenuSelectTipoCuenta.log(Level.WARN, "No existe la opción seleccionada");
                     break;
                 }
             }

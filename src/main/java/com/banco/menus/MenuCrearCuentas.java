@@ -2,6 +2,7 @@ package com.banco.menus;
 
 import com.banco.clases.Cliente;
 import com.banco.clases.Cuenta;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import java.util.Scanner;
@@ -31,6 +32,7 @@ public class MenuCrearCuentas {
          mc.seleccionCuenta(cliente);
      }else {
         System.out.println("Debe escribir únicamente Si o No, porfavor vuelva a intentarlo");
+        MenuCrearCuentas.log(Level.WARN, "Se ingreso un dato no valido en este menu");
         crearCuenta();
      }
    }
