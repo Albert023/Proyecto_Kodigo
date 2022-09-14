@@ -51,7 +51,7 @@ public class funcionesTransacciones {
                 "Digite el monto a depositar " + cuenta.getNombre() + "(mayor o igual a $10):");
         System.out.print("$");
         tr.setSaldo(validar.validarSaldo());
-        while (tr.getSaldo() > 10 || tr.getSaldo() < 500000) {
+        while (tr.getSaldo() < 10 || tr.getSaldo() > 500000) {
             System.out.println("no se permite ingresar la cantidad dada");
             tr.setSaldo(validar.validarSaldo());
         }

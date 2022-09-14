@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 //import static com.banco.menus.MenuPrincipal.menuPrincipal;
-import static com.banco.menus.MenuCrearPersona.menuCrearPersonas;
+import static com.banco.menus.MenuCrearPersona.MenuCrearPersonas;
 
 public class Validar {
   Scanner sc = new Scanner(System.in);
