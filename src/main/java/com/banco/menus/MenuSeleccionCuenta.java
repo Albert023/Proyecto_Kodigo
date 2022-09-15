@@ -48,8 +48,7 @@ public class MenuSeleccionCuenta {
                     cn.setSaldo(2000);
                 }
                 Cuenta cuenta1 = new Cuenta(cn.getSaldo(), 34555123, tc.tipo1, cn.getEstado(), cliente);
-                Cuenta cuenta2 = new Cuenta(cn.getSaldo(), 45555123, tipo2, cn.getEstado(), cliente);
-                MenuTransacciones.menuTransaccion(cuenta1, cuenta2);
+                MenuTransacciones.menuTransaccion(cuenta1);
                 break;
             }
             case 2: {

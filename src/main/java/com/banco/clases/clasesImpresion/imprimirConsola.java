@@ -19,6 +19,8 @@ public class imprimirConsola implements Imprimir {
             + cuenta.getApellido()
             + " | "
             + cuenta.getNumCuenta()
+            + " | "
+            + Banco.getNombreBanco()
             + "\n\n"
             + "Monto a "
             + transaccion.getNombreTransaccion()

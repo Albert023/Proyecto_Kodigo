@@ -1,19 +1,44 @@
 package com.banco.menus;
 
+import com.banco.clases.Banco;
 import com.banco.clases.Cuenta;
 import com.banco.clases.Transacciones;
+import com.banco.clases.clasesTransaccion.Deposito;
+import com.banco.clases.clasesTransaccion.Retiro;
+import com.banco.clases.clasesTransaccion.Transferencia;
 import com.banco.clases.clasesValidar.Validar;
+import com.banco.interfaces.Transaccion;
 import com.banco.modelo.funcionesTransacciones;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuTransacciones {
 
   public static Logger MenuTransacciones = Logger.getLogger(MenuTransacciones.class);
 
-  public static void menuTransaccion(Cuenta cuenta1, Cuenta cuenta2) {
+
+  public static void llamarBanco(){
+    Transacciones tr = new Transacciones();
+    Cuenta cu = new Cuenta();
+    Banco bn = new Banco();
+    Validar validar = new Validar();
+    MenuSeleccionBanco mb = new MenuSeleccionBanco();
+    ArrayList<String> dataBanco = new ArrayList<>();
+    String nombre;
+    String direccion;
+
+    dataBanco = mb.menuBanco();
+    nombre = dataBanco.get(0);
+    direccion = dataBanco.get(1);
+    bn.setNombreBanco(nombre);
+    bn.setDireccion(direccion);
+  }
+
+  public static void menuTransaccion(Cuenta cuenta1) {
+    llamarBanco();
     int seleccion = 0;
     boolean bandera = false;
     funcionesTransacciones ft = new funcionesTransacciones();
@@ -29,19 +54,19 @@ public class MenuTransacciones {
       switch (seleccion) {
         case 1:
           {
-            ft.deposito(cuenta1);
+            Deposito.Deposito(cuenta1);
             bandera = true;
             break;
           }
         case 2:
           {
-            ft.retiro(cuenta1);
+            Retiro.Retiro(cuenta1);
             bandera = true;
             break;
           }
         case 3:
           {
-            ft.transferencia(cuenta1,cuenta2);
+            Transferencia.Transferencia(cuenta1);
             bandera = true;
             break;
           }
