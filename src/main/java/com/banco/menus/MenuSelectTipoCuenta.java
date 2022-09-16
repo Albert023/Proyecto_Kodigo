@@ -10,10 +10,9 @@ import java.util.Scanner;
 public class MenuSelectTipoCuenta {
     public static Logger MenuSelectTipoCuenta = Logger.getLogger(MenuSelectTipoCuenta.class);
     public static String tipo1;
+
     public void selectTipoCuenta(){
-
         Cuenta ct = new Cuenta();
-
         Boolean valid = false;
         int sel = 0;
         Scanner sc = new Scanner(System.in);

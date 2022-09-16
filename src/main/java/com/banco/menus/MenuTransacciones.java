@@ -20,7 +20,7 @@ public class MenuTransacciones {
   public static Logger MenuTransacciones = Logger.getLogger(MenuTransacciones.class);
 
 
-  public static void llamarBanco(){
+  private static void llamarBanco(){
     Transacciones tr = new Transacciones();
     Cuenta cu = new Cuenta();
     Banco bn = new Banco();
@@ -38,10 +38,8 @@ public class MenuTransacciones {
   }
 
   public static void menuTransaccion(Cuenta cuenta1) {
-    llamarBanco();
     int seleccion = 0;
     boolean bandera = false;
-    funcionesTransacciones ft = new funcionesTransacciones();
 
     while (!bandera) {
       System.out.println(
@@ -54,18 +52,21 @@ public class MenuTransacciones {
       switch (seleccion) {
         case 1:
           {
+            llamarBanco();
             Deposito.Deposito(cuenta1);
             bandera = true;
             break;
           }
         case 2:
           {
+            llamarBanco();
             Retiro.Retiro(cuenta1);
             bandera = true;
             break;
           }
         case 3:
           {
+            llamarBanco();
             Transferencia.Transferencia(cuenta1);
             bandera = true;
             break;

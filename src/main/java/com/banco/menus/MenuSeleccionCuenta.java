@@ -3,6 +3,7 @@ package com.banco.menus;
 import com.banco.clases.Cliente;
 import com.banco.clases.Cuenta;
 import com.banco.clases.clasesValidar.Validar;
+import com.google.googlejavaformat.Doc;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -11,15 +12,28 @@ import java.util.Scanner;
 public class MenuSeleccionCuenta {
 
     public static Logger MenuSeleccionCuenta = Logger.getLogger(MenuSeleccionCuenta.class);
+    MenuSelectTipoCuenta tc = new MenuSelectTipoCuenta();
+    MenuSaldoApertura ma = new MenuSaldoApertura();
+    Cuenta cn = new Cuenta();
+
+    private Cuenta Activarcuenta(Cliente cliente){
+        if (tc.tipo1 == "") {
+            cn.ActivarCuenta();
+            tc.tipo1 = cn.corrienteCuenta();
+        }
+        if (cn.getSaldo()==0){
+            cn.setSaldo(2000);
+        }
+        Cuenta cuenta1 = new Cuenta(cn.getSaldo(), 34555123, tc.tipo1, cn.getEstado(), cliente);
+        return cuenta1;
+    }
 
     public void seleccionCuenta(Cliente cliente){
         Scanner sc = new Scanner(System.in);
-        Cuenta cn = new Cuenta();
-        MenuSelectTipoCuenta tc = new MenuSelectTipoCuenta();
-        MenuSaldoApertura ma = new MenuSaldoApertura();
-        String tipo2;
+
         Boolean valid = false;
         int select = 0;
+        String tipo2;
         tipo2 = cn.corrienteCuenta();
 
         //while (!valid) {
@@ -28,7 +42,8 @@ public class MenuSeleccionCuenta {
 
         System.out.println("Seleccione una de las Opciones \n" +
                 "1. Realizar una Transacción \n" +
-                "2. Salir");
+                "2. Realizar Pago de Servicios \n" +
+                "3. Salir");
         String selectString = sc.nextLine();
 
         valid = Validar.validarNumeric(selectString);
@@ -40,18 +55,16 @@ public class MenuSeleccionCuenta {
         }
         switch (select) {
             case 1: {
-                if (tc.tipo1 == "") {
-                    cn.ActivarCuenta();
-                    tc.tipo1 = cn.corrienteCuenta();
-                }
-                if (cn.getSaldo()==0){
-                    cn.setSaldo(2000);
-                }
-                Cuenta cuenta1 = new Cuenta(cn.getSaldo(), 34555123, tc.tipo1, cn.getEstado(), cliente);
-                MenuTransacciones.menuTransaccion(cuenta1);
+                Cuenta cuenta = Activarcuenta(cliente);
+                MenuTransacciones.menuTransaccion(cuenta);
                 break;
             }
             case 2: {
+               Cuenta cuenta = Activarcuenta(cliente);
+               MenuServicios.menuServicios(cuenta);
+               break;
+            }
+            case 3: {
                 System.exit(1);
                 break;
             }
