@@ -27,7 +27,6 @@ public class PagarServicios implements Transaccion {
   }
 
   public void Transaccion(Cuenta cuenta){
-    if(resp.equals("Si") || resp.equals("si") || resp.equals("SI")){
       if(SaldoPagar > cuenta.getSaldo() || SaldoPagar == cuenta.getSaldo()){
          System.out.println("no se permite vaciar completamente la cuenta");
          MenuSeleccionCuenta.seleccionCuenta(new Cliente());
@@ -36,10 +35,6 @@ public class PagarServicios implements Transaccion {
         tr.setTotal(cuenta.getSaldo() - SaldoPagar);
         tr.setNombreTransaccion("Pago Servicios");
       }
-    }
-    else if (resp.equals("No") || resp.equals("no") || resp.equals("NO")) {
-     MenuServicios.menuServicios(cuenta);
-    }
   }
 
   private static void llamarMenuImpresion(Cuenta cuenta, Banco banco){
@@ -51,8 +46,17 @@ public class PagarServicios implements Transaccion {
   public static void PagoServicios(Cuenta cuenta){
     PagarServicios ps = new PagarServicios();
     Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
-    ps.ingresarDatos();
-    ps.Transaccion(cuenta);
-    ps.llamarMenuImpresion(cuenta, banco);
+    if(resp.equals("Si") || resp.equals("si") || resp.equals("SI")){
+      ps.ingresarDatos();
+      ps.Transaccion(cuenta);
+      ps.llamarMenuImpresion(cuenta, banco);
+    }
+    else if(resp.equals("No") || resp.equals("no") || resp.equals("NO")) {
+      MenuServicios.menuServicios(cuenta);
+    }
+    else {
+      System.out.println("Debe escribir únicamente Si o No, porfavor vuelva a intentarlo");
+      ingresarDatos();
+    }
   }
 }
