@@ -46,8 +46,8 @@ public class PagarServicios implements Transaccion {
   public static void PagoServicios(Cuenta cuenta){
     PagarServicios ps = new PagarServicios();
     Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
+    ps.ingresarDatos();
     if(resp.equals("Si") || resp.equals("si") || resp.equals("SI")){
-      ps.ingresarDatos();
       ps.Transaccion(cuenta);
       ps.llamarMenuImpresion(cuenta, banco);
     }
@@ -56,7 +56,7 @@ public class PagarServicios implements Transaccion {
     }
     else {
       System.out.println("Debe escribir únicamente Si o No, porfavor vuelva a intentarlo");
-      ingresarDatos();
+      PagoServicios(cuenta);
     }
   }
 }
