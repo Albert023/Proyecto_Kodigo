@@ -15,14 +15,14 @@ public class MenuCrearPersona {
   funcionesPersonas fp = new funcionesPersonas();
   Scanner sc = new Scanner(System.in);
 
-  static String nombre;
-  static String apellido;
-  static String telefono;
-  static String correo;
-  static String dni;
+  private static String nombre;
+  private static String apellido;
+  private static String telefono;
+  private static String correo;
+  private static String dni;
   static String usuario;
   static String clave;
-  static String confClave;
+  private static String confClave;
 
   public void menu(){
     Boolean valid = false;
@@ -106,9 +106,9 @@ public class MenuCrearPersona {
     pr.setUsuario(usuario);
     pr.setClave(clave);
     if (fp.guardarCliente(pr)) {
-      System.out.println("Datos guardados");
+      System.out.println("Datos guardados \n");
     } else {
-      System.out.println("Error al gurdar datos");
+      System.out.println("Error al gurdar datos \n");
       MenuCrearPersonas.log(Level.WARN, "Error en creación de usuarios");
       crearpersona();
     }

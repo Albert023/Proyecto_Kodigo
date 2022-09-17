@@ -31,7 +31,7 @@ public class MenuIngresar {
         pr.setClave(mp.clave);
 
         if (ln.Login(pr)) {
-            System.out.println("Ingreso");
+            System.out.println("Ingreso \n");
 
             ArrayList<String> results;
             pr.setUsuario(mp.usuario);

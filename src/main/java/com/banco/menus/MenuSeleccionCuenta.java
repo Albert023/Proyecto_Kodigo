@@ -12,11 +12,11 @@ import java.util.Scanner;
 public class MenuSeleccionCuenta {
 
     public static Logger MenuSeleccionCuenta = Logger.getLogger(MenuSeleccionCuenta.class);
-    MenuSelectTipoCuenta tc = new MenuSelectTipoCuenta();
-    MenuSaldoApertura ma = new MenuSaldoApertura();
-    Cuenta cn = new Cuenta();
+    static MenuSelectTipoCuenta tc = new MenuSelectTipoCuenta();
+    static MenuSaldoApertura ma = new MenuSaldoApertura();
+    static Cuenta cn = new Cuenta();
 
-    private Cuenta Activarcuenta(Cliente cliente){
+    private static Cuenta Activarcuenta(Cliente cliente){
         if (tc.tipo1 == "") {
             cn.ActivarCuenta();
             tc.tipo1 = cn.corrienteCuenta();
@@ -28,13 +28,11 @@ public class MenuSeleccionCuenta {
         return cuenta1;
     }
 
-    public void seleccionCuenta(Cliente cliente){
+    public static void seleccionCuenta(Cliente cliente){
         Scanner sc = new Scanner(System.in);
 
         Boolean valid = false;
         int select = 0;
-        String tipo2;
-        tipo2 = cn.corrienteCuenta();
 
         //while (!valid) {
         System.out.println(tc.tipo1);
@@ -45,7 +43,6 @@ public class MenuSeleccionCuenta {
                 "2. Realizar Pago de Servicios \n" +
                 "3. Salir");
         String selectString = sc.nextLine();
-
         valid = Validar.validarNumeric(selectString);
         if (valid == false) {
             MenuSeleccionCuenta.log(Level.WARN, "Se ingreso un caracter no numerico ");

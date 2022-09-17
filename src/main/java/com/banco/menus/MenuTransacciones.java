@@ -1,8 +1,6 @@
 package com.banco.menus;
 
-import com.banco.clases.Banco;
-import com.banco.clases.Cuenta;
-import com.banco.clases.Transacciones;
+import com.banco.clases.*;
 import com.banco.clases.clasesTransaccion.Deposito;
 import com.banco.clases.clasesTransaccion.Retiro;
 import com.banco.clases.clasesTransaccion.Transferencia;
@@ -46,7 +44,8 @@ public class MenuTransacciones {
           "\nPor favor seleccione el numero de la transaccion que desea realizar : \n"
               + "1. Deposito \n"
               + "2. Retiro \n"
-              + "3. Transferencia a otra cuenta ");
+              + "3. Transferencia a otra cuenta \n" +
+                "4. Regresar");
       System.out.println("Digite su opcion: ");
       seleccion = Validar.validarNumericOut();
       switch (seleccion) {
@@ -71,6 +70,11 @@ public class MenuTransacciones {
             bandera = true;
             break;
           }
+        case 4:
+        {
+          MenuSeleccionCuenta.seleccionCuenta(new Cliente(Persona.getNombre(), Persona.getApellido(), Persona.getTelefono(), Persona.getEmail(), Persona.getDni(), Persona.getUsuario(), Persona.getClave()));
+          break;
+        }
         default:
           {
             System.out.println("Por favor digite un numero valido");

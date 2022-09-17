@@ -1,12 +1,10 @@
 package com.banco.clases.clasesTransaccion;
 
 import com.banco.clases.Banco;
-import com.banco.clases.Cliente;
 import com.banco.clases.Cuenta;
 import com.banco.clases.Transacciones;
 import com.banco.clases.clasesValidar.Validar;
 import com.banco.interfaces.Transaccion;
-
 import static com.banco.menus.MenuFormaImpresion.FormaImp;
 
 public class Transferencia implements Transaccion {

@@ -1,8 +1,6 @@
 package com.banco.menus;
 
-import com.banco.clases.Banco;
-import com.banco.clases.Cuenta;
-import com.banco.clases.Transacciones;
+import com.banco.clases.*;
 import com.banco.clases.clasesTransaccion.PagarServicios;
 import com.banco.clases.clasesTransaccion.PagarTarjeta;
 import com.banco.clases.clasesValidar.Validar;
@@ -33,7 +31,8 @@ public class MenuServicios {
 
     System.out.println("Seleccione una opción\n" +
             "1. Pagar Servicios\n" +
-            "2. Pagar Tarifa Tarjeta");
+            "2. Pagar Tarifa Tarjeta\n" +
+            "3. Regresar");
     int sel = Validar.validarNumericOut();
     switch (sel){
       case 1:{
@@ -44,6 +43,10 @@ public class MenuServicios {
       case 2:{
         llamarBanco();
         PagarTarjeta.PagarTarjeta(cuenta);
+        break;
+      }
+      case 3: {
+        MenuSeleccionCuenta.seleccionCuenta(new Cliente(Persona.getNombre(), Persona.getApellido(), Persona.getTelefono(), Persona.getEmail(), Persona.getDni(), Persona.getUsuario(), Persona.getClave()));
         break;
       }
       default:{
