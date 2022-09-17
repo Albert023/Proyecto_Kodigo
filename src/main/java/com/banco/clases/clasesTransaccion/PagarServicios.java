@@ -24,6 +24,7 @@ public class PagarServicios implements Transaccion {
     String resp = sc.next();
     if(resp.equals("Si") || resp.equals("si") || resp.equals("SI")){
       tr.setSaldo(SaldoPagar);
+
       tr.setTotal(cuenta.getSaldo() - SaldoPagar);
       tr.setNombreTransaccion("Pago Servicios");
       Transacciones transacciones = new Transacciones(tr.getSaldo(), tr.getTotal(), tr.getNombreTransaccion());

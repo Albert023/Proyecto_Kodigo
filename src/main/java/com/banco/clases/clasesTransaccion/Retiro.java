@@ -24,8 +24,12 @@ public class Retiro implements Transaccion {
   }
 
   public void Transaccion(Cuenta cuenta){
-    tr.setTotal(cuenta.getSaldo() - tr.getSaldo());
-    tr.setNombreTransaccion("Retiro");
+    if(tr.getSaldo() > cuenta.getSaldo() || tr.getSaldo() == cuenta.getSaldo()){
+      tr.setTotal(0);
+    }else{
+      tr.setTotal(cuenta.getSaldo() - tr.getSaldo());
+      tr.setNombreTransaccion("Retiro");
+    }
   }
 
   private static void llamarMenuImpresion(Cuenta cuenta,Banco banco){

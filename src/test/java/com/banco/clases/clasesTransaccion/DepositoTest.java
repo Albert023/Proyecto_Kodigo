@@ -13,7 +13,7 @@ import org.junit.Test;
 public class DepositoTest extends TestCase {
 
   @Test
-  public void testTransaccionFunction(){
+  public void testTransaccionAddFunction(){
     Cliente cliente = new Cliente();
     Cuenta cn = new Cuenta();
     Cuenta cuenta = new Cuenta(2000, 34555123, cn.corrienteCuenta(), cn.getEstado(), cliente);
@@ -23,7 +23,7 @@ public class DepositoTest extends TestCase {
     tr.setSaldo(3000);
     dp.Transaccion(cuenta);
 
-    assertEquals(5000.00, tr.getTotal() );
+    assertEquals(5000.00, tr.getTotal());
   }
 
   @Test
