@@ -15,10 +15,10 @@ public class MenuSeleccionCuenta {
     static MenuSelectTipoCuenta tc = new MenuSelectTipoCuenta();
     static MenuSaldoApertura ma = new MenuSaldoApertura();
     static Cuenta cn = new Cuenta();
-    public static int select;
+    private static int select;
 
     private static Cuenta Activarcuenta(Cliente cliente){
-        if (tc.tipo1 == "") {
+        if (tc.tipo1 == null) {
             cn.ActivarCuenta();
             tc.tipo1 = cn.corrienteCuenta();
         }
@@ -31,10 +31,8 @@ public class MenuSeleccionCuenta {
 
     public static void seleccionCuenta(Cliente cliente){
         Scanner sc = new Scanner(System.in);
-
         Boolean valid = false;
-       select = 0;
-
+        select = 0;
         //while (!valid) {
         System.out.println(tc.tipo1);
         System.out.println(ma.saldo+" || "+cn.getSaldo()+" ");

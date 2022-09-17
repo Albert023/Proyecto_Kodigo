@@ -31,9 +31,11 @@ public class PagarServicios implements Transaccion {
          System.out.println("no se permite vaciar completamente la cuenta");
          MenuSeleccionCuenta.seleccionCuenta(new Cliente());
       }else{
+        Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
         tr.setSaldo(SaldoPagar);
         tr.setTotal(cuenta.getSaldo() - SaldoPagar);
         tr.setNombreTransaccion("Pago Servicios");
+        llamarMenuImpresion(cuenta, banco);
       }
   }
 
@@ -45,11 +47,9 @@ public class PagarServicios implements Transaccion {
 
   public static void PagoServicios(Cuenta cuenta){
     PagarServicios ps = new PagarServicios();
-    Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
     ps.ingresarDatos();
     if(resp.equals("Si") || resp.equals("si") || resp.equals("SI")){
       ps.Transaccion(cuenta);
-      ps.llamarMenuImpresion(cuenta, banco);
     }
     else if(resp.equals("No") || resp.equals("no") || resp.equals("NO")) {
       MenuServicios.menuServicios(cuenta);
