@@ -15,6 +15,7 @@ public class MenuSeleccionCuenta {
     static MenuSelectTipoCuenta tc = new MenuSelectTipoCuenta();
     static MenuSaldoApertura ma = new MenuSaldoApertura();
     static Cuenta cn = new Cuenta();
+    public static int select;
 
     private static Cuenta Activarcuenta(Cliente cliente){
         if (tc.tipo1 == "") {
@@ -32,7 +33,7 @@ public class MenuSeleccionCuenta {
         Scanner sc = new Scanner(System.in);
 
         Boolean valid = false;
-        int select = 0;
+       select = 0;
 
         //while (!valid) {
         System.out.println(tc.tipo1);
