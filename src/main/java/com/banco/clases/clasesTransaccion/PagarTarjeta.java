@@ -35,11 +35,9 @@ public class PagarTarjeta implements Transaccion {
       tr.setTotal(0);
     }
     else {
-      Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
       tr.setSaldo(SaldoPagar);
       tr.setTotal(cuenta.getSaldo() - SaldoPagar);
       tr.setNombreTransaccion("Pago Tarjeta");
-      llamarMenuImpresion(cuenta, banco);
     }
   }
   private static void llamarMenuImpresion(Cuenta cuenta, Banco banco){
@@ -49,9 +47,11 @@ public class PagarTarjeta implements Transaccion {
 
   public static  void PagarTarjeta(Cuenta cuenta){
     PagarTarjeta tp = new PagarTarjeta();
+    Banco banco = new Banco(bn.getNombreBanco(), 1, bn.getDireccion());
     tp.ingresarDatos(cuenta);
     if(resp.equals("Si") || resp.equals("si") || resp.equals("SI")){
       tp.Transaccion(cuenta);
+      llamarMenuImpresion(cuenta, banco);
     }else if(resp.equals("No") || resp.equals("no") || resp.equals("NO")) {
       MenuServicios.menuServicios(cuenta);
     }else{
